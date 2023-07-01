@@ -1,0 +1,127 @@
+h1,h2,h3,h4,h5,h6 {font-family: "Belanosima", sans-serif}
+p {
+  margin: 5px!important;
+}
+
+/* Jumbo carousel images and params */
+.bgimg-1 {  
+  width: 100%;
+  height: 662px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./mac.jpg");
+  font-family: "Anton";
+}
+.bgimg-2 {  
+  width: 100%;
+  height: 662px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./vsat.png");
+  font-family: "Anton";
+}
+.bgimg-3 {  
+  width: 100%;
+  height: 662px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./SERVER2.jpg");
+  font-family: "Anton";
+}
+.skillspace{
+  margin-top:20px;
+  margin-bottom:75px;
+}
+.skills-bground{
+  background-color: #000000d9;
+}
+.w3-jumbo{  
+  font-size: 45px!important;
+}
+.res-name{ 
+  color: #1a1daa;
+  font-family: "Anton";
+}
+.w3-bar .w3-button {
+  padding: 10px;
+}
+.App {
+  text-align: center;
+}
+.My-Header{
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  justify-content: right;
+}
+h5{
+  padding: 5px;
+  margin: 10px;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* Styles for larger screens */
+
+
+
+@media (max-width: 900px) {
+  /* Jumbo carousel images and params */
+  .bgimg-1 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./mac.jpg");
+    font-family: "Anton";
+  }
+  .bgimg-2 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./vsat.png");
+    font-family: "Anton";
+  }
+  .bgimg-3 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./SERVER2.jpg");
+    font-family: "Anton";
+  }
+  /* CSS styles specifically for screens with a maximum width of 768 pixels or smaller go here */
+}
+
+.promo{  
+  background-color: #9595bdcf;
+  padding: 30px 16px;
+  margin: 30px 0;
+  font-size: 30px;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
