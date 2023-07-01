@@ -1,0 +1,19 @@
+name: Update Droplet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-droplet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update Droplet
+        run: |
+          ssh chidi@164.90.154.197 'cd /main/stage && git pull'
+
