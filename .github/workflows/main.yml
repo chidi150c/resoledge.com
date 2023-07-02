@@ -17,9 +17,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-passphrase: ${{ secrets.SSH_PASSPHRASE }}
 
       - name: Update Droplet
         run: |
-          ssh chidi@164.90.154.197 'cd /main/stage && git pull'
-
+          sshpass -p ${{ secrets.SSH_PASSPHRASE }} ssh -o StrictHostKeyChecking=no chidi@164.90.154.197 'cd /main/stage && git pull'
