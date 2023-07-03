@@ -14,17 +14,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: SSH into Droplet and pwd
-        id: ssh
-        uses: invi5h/ssh-action@v1
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DROPLET_IP }}
-          port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Run command on Droplet
-        run: |
-          ssh -p ${{ secrets.SSH_PORT }} -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.DROPLET_USERNAME }}@${{ secrets.DROPLET_IP }} pwd
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            pwd
 
       - name: Create a git repository
         run: |
