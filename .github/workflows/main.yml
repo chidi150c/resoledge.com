@@ -15,22 +15,23 @@ jobs:
 
       - name: SSH into Droplet and pwd
         id: ssh
-        uses: invi5H/ssh-action@v1
+        uses: invi5h/ssh-action@v1
         with:
-          SSH_HOST: ${{ secrets.DROPLET_IP }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-          SSH_USER: ${{ secrets.DROPLET_USERNAME }}
-          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          KEY_TYPE: rsa
-          
-      - run: ssh ${{ steps.ssh.outputs.SERVER }} pwd
-      
+          host: ${{ secrets.DROPLET_IP }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Run command on Droplet
+        run: |
+          ssh -p ${{ secrets.SSH_PORT }} -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.DROPLET_USERNAME }}@${{ secrets.DROPLET_IP }} pwd
+
       - name: Create a git repository
         run: |
-            cd /main/stage
-            echo "# resoledge.com" >> README.md
-            git init
-            git add README.md
-            git commit -m "first commit"
-            git branch -M main
-            git remote add origin https://github.com/chidi150c/resoledge.com.git
+          cd /main/stage
+          echo "# resoledge.com" >> README.md
+          git init
+          git add README.md
+          git commit -m "first commit"
+          git branch -M main
+          git remote add origin https://github.com/chidi150c/resoledge.com.git
