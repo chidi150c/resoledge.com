@@ -26,7 +26,7 @@ jobs:
 
       - name: Create a git repository
         run: |
-          cd /main/stage
+          cd /home/chidi/main/stage
           echo "# resoledge.com" >> README.md
           git init
           git add README.md
