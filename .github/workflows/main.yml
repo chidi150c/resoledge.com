@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: SSH into Droplet and git
+      - name: SSH into Droplet and git init
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DROPLET_IP }}
