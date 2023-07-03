@@ -22,14 +22,14 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
-            pwd
+            echo "# resoledge.com" >> README.md
 
-      - name: Create a git repository
-        run: |
-          cd $GITHUB_WORKSPACE/resoledge.com/main/stage
-          echo "# resoledge.com" >> README.md
-          git init
-          git add README.md
-          git commit -m "first commit"
-          git branch -M main
-          git remote add origin https://github.com/chidi150c/resoledge.com.git
+#       - name: Create a git repository
+#         run: |
+#           cd $GITHUB_WORKSPACE/resoledge.com/main/stage
+#           echo "# resoledge.com" >> README.md
+#           git init
+#           git add README.md
+#           git commit -m "first commit"
+#           git branch -M main
+#           git remote add origin https://github.com/chidi150c/resoledge.com.git
