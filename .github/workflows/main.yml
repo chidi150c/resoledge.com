@@ -26,7 +26,7 @@ jobs:
 
       - name: Create a git repository
         run: |
-          cd $GITHUB_WORKSPACE/main/stage
+          cd $GITHUB_WORKSPACE/resoledge.com/main/stage
           echo "# resoledge.com" >> README.md
           git init
           git add README.md
