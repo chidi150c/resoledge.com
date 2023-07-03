@@ -26,4 +26,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /main/stage
-            git pull
+            echo "# resoledge_dev" >> README.md
+            git init
+            git add README.md
+            git commit -m "first commit"
+            git branch -M main
+            git remote add origin https://github.com/chidi150c/resoledge.com.git
