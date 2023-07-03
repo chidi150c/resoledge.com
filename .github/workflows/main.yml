@@ -22,4 +22,4 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
-            git pull
+            git pull origin main
