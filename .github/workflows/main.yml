@@ -19,16 +19,19 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: SSH into Droplet and pull code
-        uses: aappleboy/ssh-action@master
+        uses: invi5H/ssh-action@v1
         with:
-          host: ${{ secrets.DROPLET_IP }}
-          username: ${{ secrets.DROPLET_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /main/stage
-            echo "# resoledge_dev" >> README.md
-            git init
-            git add README.md
-            git commit -m "first commit"
-            git branch -M main
-            git remote add origin https://github.com/chidi150c/resoledge.com.git
+          SSH_HOST: ${{ secrets.DROPLET_IP }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_USER: ${{ secrets.DROPLET_USERNAME }}
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - run: ssh ${{ steps.ssh.outputs.SERVER }} pwd
+     
+      - name: Add and commit changes
+        run: |
+          cd /path/to/your/repository
+          git config user.name "Your Name"
+          git config user.email "your.email@example.com"
+          git add README.md
+          git commit -m "Update README.md"
+          git push origin main
