@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: SSH into Droplet and pull code
+      - name: SSH into Droplet and pwd
         id: ssh
         uses: invi5H/ssh-action@v1
         with:
