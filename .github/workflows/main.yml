@@ -1,4 +1,4 @@
-name: Deploy to DigitalOcean Droplet
+name: Deploy to DigitalOcean
 
 on:
   push:
@@ -13,7 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: SSH into Droplet and git
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
+      - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DROPLET_IP }}
@@ -22,4 +33,40 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
-            git pull origin main
+            cd /var/www/html
+            rm -rf *
+            cp -R /path/to/your/build/folder/* .
+
+      - name: Install project dependencies
+        run: |
+          cd /var/www/html
+          npm install --production
+
+      - name: Set up PM2 process manager
+        run: |
+          npm install pm2 -g
+          pm2 delete all || true
+          pm2 start /var/www/html/server.js --name my-app
+          pm2 save
+          sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u chidi --hp /home/chidi
+
+      - name: Set up Nginx configuration
+        run: |
+          sudo cp /path/to/your/nginx/conf /etc/nginx/sites-available/my-app
+          sudo ln -s /etc/nginx/sites-available/my-app /etc/nginx/sites-enabled/my-app
+          sudo systemctl reload nginx
+
+      - name: Clean up previous deployments
+        run: |
+          ls -t /var/www/html | tail -n +6 | xargs -I {} rm -rf /var/www/html/{}
+
+      - name: Restart web server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          key_type: rsa
+          script: |
+            sudo systemctl restart nginx
