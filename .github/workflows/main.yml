@@ -57,6 +57,18 @@ jobs:
           source: '${{ github.workspace }}/webapp/build/*'
           target: '/var/www/html'
           script: sudo cp -R * /var/www/html/
+          
+      - name: Redirect copy to nginx root
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          key_type: rsa
+          run: |
+            cd /var/www/html/github/workspace/webapp/build
+            cp -R * /var/www/html
 
       - name: Set up PM2 process manager
         uses: appleboy/ssh-action@master
@@ -67,7 +79,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           run: |
-            cp -R * /var/www/html
             npm install pm2 -g
             pm2 delete all || true
             pm2 start /var/www/html/server.js --name webapp
