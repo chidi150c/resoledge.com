@@ -45,7 +45,8 @@ jobs:
             echo "Current directory: $(pwd)"
             ls -la
             sudo rm -rf *
-            cp -R ./weapp/* .
+            cp -R ${{ github.workspace }}/webapp/* .
+            ls -la
 
       - name: Install project dependencies
         run: |
