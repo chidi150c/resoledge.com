@@ -58,6 +58,21 @@ jobs:
           target: '/var/www/html'
           script: sudo cp -R * /var/www/html/
 
+      - name: Set up PM2 process manager
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          key_type: rsa
+          run: |
+            cp -R * /var/www/html
+            npm install pm2 -g
+            pm2 delete all || true
+            pm2 start /var/www/html/server.js --name webapp
+            pm2 save
+            sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ${{ secrets.DROPLET_USERNAME }} --hp /home/${{ secrets.DROPLET_USERNAME }}
 
       - name: Set up Nginx configuration
         uses: appleboy/ssh-action@master
@@ -70,16 +85,6 @@ jobs:
           run: |
             sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
             sudo systemctl reload nginx
-
-      - name: Set up PM2 process manager
-        run: |
-          npm install pm2 -g
-          pm2 delete all || true
-          pm2 start /var/www/html/server.js --name webapp
-          pm2 save
-          sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ${{ secrets.DROPLET_USERNAME }} --hp /home/${{ secrets.DROPLET_USERNAME }}
-
-
 
       - name: Clean up previous deployments
         run: |
