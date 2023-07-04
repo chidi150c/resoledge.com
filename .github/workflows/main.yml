@@ -80,12 +80,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
-          script: |
-            sudo npm install pm2 -g
-            sudo pm2 delete all || true
-            sudo pm2 start /var/www/html/server.js --name webapp
-            sudo pm2 save
-            sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ${{ secrets.DROPLET_USERNAME }} --hp /home/${{ secrets.DROPLET_USERNAME }}
+          script: npm run start-pm
+
 
       - name: Clean up previous deployment
         run: |
