@@ -30,6 +30,7 @@ jobs:
         run: |
           cd ./webapp
           npm run build
+          ls -la
 
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
@@ -53,7 +54,7 @@ jobs:
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: '${{ github.workspace }}/webapp'
+          source: '${{ github.workspace }}/webapp/*build'
           target: '/var/www/html'
 
       - name: Install project dependencies
