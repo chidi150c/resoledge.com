@@ -20,6 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          echo "Current directory: $(pwd)"
+          echo "Workspace directory: ${{ github.workspace }}"
           cd /webapp
           npm ci
 
