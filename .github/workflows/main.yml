@@ -70,6 +70,7 @@ jobs:
             cd /var/www/html/github/workspace/webapp/build
             echo "Current directory: $(pwd)"
             cp -R * /var/www/html
+            rm -r /var/www/html/github
 
       - name: Set up PM2 process manager
         uses: appleboy/ssh-action@master
