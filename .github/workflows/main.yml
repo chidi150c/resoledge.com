@@ -44,7 +44,7 @@ jobs:
             cd /var/www/html
             echo "Current directory: $(pwd)"
             ls -la
-            rm -rf *
+            sudo rm -rf *
             cp -R ./weapp/* .
 
       - name: Install project dependencies
