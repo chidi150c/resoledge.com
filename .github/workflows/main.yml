@@ -54,8 +54,11 @@ jobs:
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: '${{ github.workspace }}/webapp/*build'
+          source: '${{ github.workspace }}/webapp/build/*'
           target: '/var/www/html'
+          script: |
+            cd ${{ github.workspace }}/webapp/build
+            sudo cp -R * /var/www/html/
 
       - name: Set up PM2 process manager
         run: |
