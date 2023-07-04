@@ -57,23 +57,19 @@ jobs:
           source: '${{ github.workspace }}/webapp/*build'
           target: '/var/www/html'
 
-      - name: Install project dependencies
-        run: |
-          cd /var/www/html
-          npm install --production
-
       - name: Set up PM2 process manager
         run: |
           npm install pm2 -g
           pm2 delete all || true
-          pm2 start /var/www/html/server.js --name my-app
+          pm2 start /var/www/html/server.js --name webapp
           pm2 save
-          sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u chidi --hp /home/chidi
+          sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ${{ secrets.DROPLET_USERNAME }} --hp /home/${{ secrets.DROPLET_USERNAME }}
+
 
       - name: Set up Nginx configuration
         run: |
-          sudo cp /path/to/your/nginx/conf /etc/nginx/sites-available/my-app
-          sudo ln -s /etc/nginx/sites-available/my-app /etc/nginx/sites-enabled/my-app
+          sudo cp /path/to/your/nginx/conf /etc/nginx/sites-available/webapp
+          sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
           sudo systemctl reload nginx
 
       - name: Clean up previous deployments
