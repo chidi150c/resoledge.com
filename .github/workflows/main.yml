@@ -40,9 +40,9 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
-            cd ./main/stage
+            cd /var/www/html
             rm -rf *
-            cp -R ./weapp/build .
+            cp -R ./weapp .
 
       - name: Install project dependencies
         run: |
