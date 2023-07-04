@@ -56,9 +56,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           source: '${{ github.workspace }}/webapp/build/*'
           target: '/var/www/html'
-          script: |
-            cd ${{ github.workspace }}/webapp/build
-            sudo cp -R * /var/www/html/
+          script: sudo cp -R * /var/www/html/
 
 
       - name: Set up Nginx configuration
