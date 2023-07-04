@@ -60,6 +60,13 @@ jobs:
             cd ${{ github.workspace }}/webapp/build
             sudo cp -R * /var/www/html/
 
+
+      - name: Set up Nginx configuration
+        run: |
+          sudo cp /etc/nginx/nginx.conf /etc/nginx/sites-available/webapp
+          sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
+          sudo systemctl reload nginx
+
       - name: Set up PM2 process manager
         run: |
           npm install pm2 -g
@@ -69,11 +76,6 @@ jobs:
           sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ${{ secrets.DROPLET_USERNAME }} --hp /home/${{ secrets.DROPLET_USERNAME }}
 
 
-      - name: Set up Nginx configuration
-        run: |
-          sudo cp /path/to/your/nginx/conf /etc/nginx/sites-available/webapp
-          sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
-          sudo systemctl reload nginx
 
       - name: Clean up previous deployments
         run: |
