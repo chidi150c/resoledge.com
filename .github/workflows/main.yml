@@ -62,9 +62,16 @@ jobs:
 
 
       - name: Set up Nginx configuration
-        run: |
-          sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
-          sudo systemctl reload nginx
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          key_type: rsa
+          run: |
+            sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
+            sudo systemctl reload nginx
 
       - name: Set up PM2 process manager
         run: |
