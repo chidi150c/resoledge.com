@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-pm": "pm2 start index.js --name webapp"
   },
   "eslintConfig": {
     "extends": [
