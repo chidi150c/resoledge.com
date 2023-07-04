@@ -54,9 +54,12 @@ jobs:
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: '${{ github.workspace }}/webapp/build/*'
+          source: '${{ github.workspace }}/webapp/*'
           target: '/var/www/html'
-          script: sudo cp -R * /var/www/html/
+          script: |
+            sudo cp -R build/* /var/www/html/
+            sudo cp -R package* /var/www/html/
+            sudo cp -R src/index.js /var/www/html/
           
       - name: Redirect copy to nginx root
         uses: appleboy/ssh-action@master
