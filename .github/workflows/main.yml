@@ -42,7 +42,7 @@ jobs:
           script: |
             cd ./main/stage
             rm -rf *
-            cp -R ./main/stage/build .
+            cp -R ./weapp/build .
 
       - name: Install project dependencies
         run: |
