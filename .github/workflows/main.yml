@@ -81,7 +81,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
-            npm install pm2 -g
+            sudo npm install pm2 -g
             pm2 delete all || true
             pm2 start /var/www/html/server.js --name webapp
             pm2 save
