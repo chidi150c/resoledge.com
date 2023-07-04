@@ -66,7 +66,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
-          run: |
+          script: |
             cd /var/www/html/github/workspace/webapp/build
             echo "Current directory: $(pwd)"
             cp -R * /var/www/html
