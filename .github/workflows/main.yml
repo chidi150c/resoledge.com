@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd resoledge.com/webapp
+          cd ${{ github.workspace }}/resoledge.com/webapp
           npm ci
 
       - name: Build app
