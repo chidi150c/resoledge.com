@@ -40,9 +40,12 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
+            set -e
             cd /var/www/html
+            echo "Current directory: $(pwd)"
+            ls -la
             rm -rf *
-            cp -R ./weapp .
+            cp -R ./weapp/* .
 
       - name: Install project dependencies
         run: |
