@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           echo "Current directory: $(ls)"
-          echo "Current directory: $(ls /webapp)"
+          echo "Current directory: $(ls ./webapp)"
           echo "Workspace directory: ${{ github.workspace }}"
           cd /webapp
           npm ci
