@@ -27,7 +27,9 @@ jobs:
           npm ci
 
       - name: Build app
-        run: npm run build
+        run: |
+          cd ./webapp
+          npm run build
 
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
@@ -38,9 +40,9 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
-            cd /var/www/html
+            cd ./main/stage
             rm -rf *
-            cp -R /path/to/your/build/folder/* .
+            cp -R ./main/stage/build .
 
       - name: Install project dependencies
         run: |
