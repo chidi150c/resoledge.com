@@ -99,7 +99,7 @@ jobs:
             sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
             sudo systemctl reload nginx
 
-      - name: Clean up previous deployments
+      - name: Clean up previous deployment
         run: |
           ls -t /var/www/html | tail -n +6 | xargs -I {} rm -rf /var/www/html/{}
 
