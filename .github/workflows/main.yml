@@ -63,7 +63,7 @@ jobs:
 
       - name: Set up Nginx configuration
         run: |
-          sudo cp /etc/nginx/nginx.conf /etc/nginx/sites-available/webapp
+          sudo cp /etc/nginx /etc/nginx/sites-available/webapp
           sudo ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled/webapp
           sudo systemctl reload nginx
 
