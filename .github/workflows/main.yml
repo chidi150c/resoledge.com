@@ -45,6 +45,7 @@ jobs:
             echo "Current directory: $(pwd)"
             ls -la
             sudo rm -rf *
+            echo ${{ github.workspace }}/webapp/*
             cp -R ${{ github.workspace }}/webapp/* .
             ls -la
 
