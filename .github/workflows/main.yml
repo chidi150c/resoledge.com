@@ -68,6 +68,7 @@ jobs:
           key_type: rsa
           run: |
             cd /var/www/html/github/workspace/webapp/build
+            echo "Current directory: $(pwd)"
             cp -R * /var/www/html
 
       - name: Set up PM2 process manager
