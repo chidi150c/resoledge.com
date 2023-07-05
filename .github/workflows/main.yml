@@ -49,10 +49,12 @@ jobs:
 
 
       - name: Run a multi-line script
-        run: |          
+        run: |
           cd ./webapp
-          cp -R package.json ./build/          
-          cp -R ./src/index.js ./build/          
+          ls -al                 # Debug statement to list contents of the current directory
+          cp -R package.json ./build/
+          cp -R ./src/index.js ./build/
+          ls -al ./build/        # Debug statement to list contents of the 'build' directory
           tar -cvf deploy.tar ./build/
 
       - name: Copy files to DigitalOcean droplet
