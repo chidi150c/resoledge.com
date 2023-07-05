@@ -52,7 +52,7 @@ jobs:
         run: |          
           cd ./webapp
           cp -R package.json ./build/          
-          cp -R /src/index.js ./build/          
+          cp -R ./src/index.js ./build/          
           tar -cvf deploy.tar ./build/
 
       - name: Copy files to DigitalOcean droplet
