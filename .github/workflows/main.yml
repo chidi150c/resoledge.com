@@ -48,7 +48,7 @@ jobs:
             sudo rm -rf *
 
 
-      - name: Run a multi-line script
+      - name: Add some more files to build folder
         run: |
           cd ./webapp
           ls -al                 # Debug statement to list contents of the current directory
@@ -64,7 +64,7 @@ jobs:
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: "deploy.tar"
+          source: "./webapp/deploy.tar"
           target: '/var/www/html'
 
 #       - name: Redirect copy to nginx root
