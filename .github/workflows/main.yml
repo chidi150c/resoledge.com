@@ -55,7 +55,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           rm: 'true'
-          source: '${{ github.workspace }}webapp/build/*' # Copy build artifacts
+          source: '${{ github.workspace }}/webapp/build/*' # Copy build artifacts
           target: '/var/www/html'
 
       - name: Copy package.json to DigitalOcean droplet
@@ -66,7 +66,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}          
           rm: 'true'
-          source: '${{ github.workspace }}webapp/package.json'
+          source: '${{ github.workspace }}/webapp/package.json'
           target: '/var/www/html'
 
       - name: Copy index.js to DigitalOcean droplet
@@ -77,7 +77,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           rm: 'true'
-          source: '${{ github.workspace }}webapp/src/index.js'
+          source: '${{ github.workspace }}/webapp/src/index.js'
           target: '/var/www/html'
 
           
