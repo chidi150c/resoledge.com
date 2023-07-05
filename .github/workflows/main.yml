@@ -54,6 +54,7 @@ jobs:
           cp -R ./webapp/package.json ./webapp/build/
           cp -R ./webapp/src/index.js ./webapp/build/          
           cp -R ./webapp/build/* ../build/
+          ls -la
           rm -rf * .
           cp -R ../build/* .
 
