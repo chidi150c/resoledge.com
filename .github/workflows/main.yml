@@ -51,11 +51,11 @@ jobs:
       - name: Add some more files to build folder
         run: |
           mkdir ../build
-          cp -R ./webapp/package.json ./build/
-          cp -R ./webapp/src/index.js ./build/          
-          cp -R ./webapp/build ../build
+          cp -TR ./webapp/package.json ./build/
+          cp -TR ./webapp/src/index.js ./build/          
+          cp -TR ./webapp/build/* ../build/
           rm -rf * .
-          cp -R ../build/* .
+          cp -TR ../build/* .
 
       - name: Copy files to DigitalOcean droplet
         uses: appleboy/scp-action@master
