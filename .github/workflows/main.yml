@@ -55,8 +55,13 @@ jobs:
           cp -R ./webapp/src/index.js ./webapp/build/          
           cp -R ./webapp/build/* ../build/
           ls -la
-          rm -rf * .
+          rm -rf * ./webapp          
+          rm -rf * .git
+          rm -rf * .gitignore
+          rm -rf * ./README.md
+          ls -la
           cp -R ../build/* .
+          ls -la
 
       - name: Copy files to DigitalOcean droplet
         uses: appleboy/scp-action@master
