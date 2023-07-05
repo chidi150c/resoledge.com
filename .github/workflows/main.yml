@@ -29,7 +29,7 @@ jobs:
       - name: Build app
         run: |
           cd ./webapp
-          npm run build
+          npm run build 
           ls -la
 
       - name: Deploy to DigitalOcean
@@ -51,8 +51,8 @@ jobs:
       - name: Add some more files to build folder
         run: |
           mkdir ../build
-          cp -TR ./webapp/package.json ./build/
-          cp -TR ./webapp/src/index.js ./build/          
+          cp -TR ./webapp/package.json ./webapp/build/
+          cp -TR ./webapp/src/index.js ./webapp/build/          
           cp -TR ./webapp/build/* ../build/
           rm -rf * .
           cp -TR ../build/* .
