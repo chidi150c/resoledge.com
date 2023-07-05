@@ -51,8 +51,8 @@ jobs:
       - name: Run a multi-line script
         run: |          
           cd ./webapp
-          cp -TR package.json ./build/          
-          cp -TR /src/index.js ./build/          
+          cp -R package.json ./build/          
+          cp -R /src/index.js ./build/          
           tar -cvf deploy.tar ./build/
 
       - name: Copy files to DigitalOcean droplet
