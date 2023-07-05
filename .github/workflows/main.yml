@@ -54,14 +54,12 @@ jobs:
           cp -R ./webapp/package.json ./webapp/build/
           cp -R ./webapp/src/index.js ./webapp/build/          
           cp -R ./webapp/build/* ../build/
-          ls -la
           rm -rf * ./webapp          
-          rm -rf * .git
+          rm -rf * .git          
           rm -rf * .gitignore
+          rm -rf * .github
           rm -rf * ./README.md
-          ls -la
           cp -R ../build/* .
-          ls -la
 
       - name: Copy files to DigitalOcean droplet
         uses: appleboy/scp-action@master
@@ -72,36 +70,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           source: './*'
           target: '/var/www/html'
-
-#       - name: Redirect copy to nginx root
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ secrets.DROPLET_IP }}
-#           username: ${{ secrets.DROPLET_USERNAME }}
-#           key: ${{ secrets.SSH_PRIVATE_KEY }}
-#           port: ${{ secrets.SSH_PORT }}
-#           key_type: rsa
-#           script: |
-#             cd /var/www/html/github/workspace/webapp/build
-#             echo "Current directory: $(pwd)"
-#             cp -R * /var/www/html
-#             rm -r /var/www/html/github
-
-      - name: Set up PM2 process manager
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DROPLET_IP }}
-          username: ${{ secrets.DROPLET_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          key_type: rsa
-          script: npm run start-pm
-
-
-      - name: Clean up previous deployment
-        run: |
-          ls -t /var/www/html | tail -n +6 | xargs -I {} rm -rf /var/www/html/{}
-
+          
       - name: Restart web server
         uses: appleboy/ssh-action@master
         with:
