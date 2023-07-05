@@ -52,7 +52,8 @@ jobs:
         run: |
           mkdir ../build
           cp -R ./webapp/package.json ./webapp/build/
-          cp -R ./webapp/src/index.js ./webapp/build/          
+          cp -R ./webapp/src/index.js ./webapp/build/ 
+          cp -R ./webapp/Dockerfile ./webapp/build/           
           cp -R ./webapp/build/* ../build/
           rm -rf * ./webapp          
           rm -rf * .git          
