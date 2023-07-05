@@ -54,7 +54,6 @@ jobs:
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          rm: 'true'
           source: '${{ github.workspace }}/webapp/build/*' # Copy build artifacts
           target: '/var/www/html'
 
@@ -64,8 +63,7 @@ jobs:
           host: ${{ secrets.DROPLET_IP }}
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}          
-          rm: 'true'
+          port: ${{ secrets.SSH_PORT }}   
           source: '${{ github.workspace }}/webapp/package.json'
           target: '/var/www/html'
 
@@ -76,11 +74,9 @@ jobs:
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          rm: 'true'
           source: '${{ github.workspace }}/webapp/src/index.js'
           target: '/var/www/html'
 
-          
 #       - name: Redirect copy to nginx root
 #         uses: appleboy/ssh-action@master
 #         with:
