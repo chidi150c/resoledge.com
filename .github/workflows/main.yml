@@ -101,6 +101,8 @@ jobs:
           key_type: rsa
           script: |
             cd /var/www/html
+            docker logout
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker run -d -p 3000:3000 chidi150c/node20webapp:${{ github.sha }}
             
 # To use docker comment out the below and uncomment the above and vice versa  
