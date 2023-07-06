@@ -4,14 +4,11 @@ FROM node:20-alpine3.17
 # Set the working directory inside the container
 WORKDIR /webapp
 
-# Copy package.json and package-lock.json to the working directory
-COPY package.json package-lock.json ./
+# Copy the built files from the runner machine to the working directory
+COPY /build ./
 
-# Install dependencies
-RUN npm ci --production
-
-# Copy the rest of the application code to the working directory
-COPY . .
+# Install any necessary dependencies (if applicable)
+# RUN npm ci --production
 
 # Expose the port on which your application listens
 EXPOSE 3000
