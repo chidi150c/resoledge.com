@@ -6,11 +6,23 @@ WORKDIR /webapp
 
 # Copy the build folder from your local machine to the working directory in the container
 # COPY build/* .
-COPY package.json package-lock.json ./
+COPY package.json ./
 
 RUN npm ci --only=production
-COPY . .
-RUN  npm run build 
+
+# Copy the application code to the container
+COPY src ./src
+COPY public ./public
+COPY Dockerfile .
+          
+# Build the application
+RUN npm run build
+
+# Remove unnecessary files
+RUN rm -rf src public Dockerfile package*.json
+
+# Set the working directory for the built application
+WORKDIR /webapp/build
 
 # Install 'serve' globally
 RUN npm install -g serve
