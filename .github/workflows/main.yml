@@ -71,7 +71,7 @@ jobs:
           script: |
             cd /var/www/html
             docker logout
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            docker login -u chidi150c -p Omoyen!234
             docker pull chidi150c/node20webapp:${{ github.sha }}
             docker run -d -p 3000:3000 chidi150c/node20webapp:${{ github.sha }}
             
