@@ -83,6 +83,7 @@ jobs:
           username: ${{ secrets.DROPLET_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
+          key_type: rsa
           script: |
             cd /var/www/html
             sudo docker run -d -p 3000:3000 chidi150c/node20webapp:${{ github.sha }}
