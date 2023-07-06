@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ./webapp
-          npm ci
+          npm ci --only=production
 
       - name: Build app
         run: |
