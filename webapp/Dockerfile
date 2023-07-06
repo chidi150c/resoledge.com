@@ -8,7 +8,7 @@ WORKDIR /webapp
 COPY build/* .
 
 # Install 'serve' globally
-RUN npm install -g srm 
+RUN npm install -g serve
 # Expose the port on which your application listens
 EXPOSE 3000
 
