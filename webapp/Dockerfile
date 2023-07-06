@@ -5,11 +5,10 @@ FROM node:20-alpine3.17
 WORKDIR /webapp
 
 # Copy the build folder from your local machine to the working directory in the container
-COPY build .
+COPY build/* .
 
 # Install 'serve' globally
-RUN npm install -g serve
-
+RUN npm install -g srm 
 # Expose the port on which your application listens
 EXPOSE 3000
 
