@@ -21,16 +21,16 @@ jobs:
       - name: Update npm
         run: npm install -g npm@latest
 
-      - name: Install dependencies
-        run: |
-          cd ./webapp
-          npm ci --only=production
+#       - name: Install dependencies
+#         run: |
+#           cd ./webapp
+#           npm ci --only=production
 
-      - name: Build app
-        run: |
-          cd ./webapp
-          npm run build 
-          ls -la
+#       - name: Build app
+#         run: |
+#           cd ./webapp
+#           npm run build 
+#           ls -la
 
 #the following will be commented out to avoid docker 
       - name: Docker Login
