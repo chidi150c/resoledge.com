@@ -75,6 +75,17 @@ jobs:
 
             docker pull chidi150c/node20webapp:${{ github.sha }}
             docker run -d -p 3000:3000 chidi150c/node20webapp:${{ github.sha }}
+      
+      - name: SSH into DigitalOcean Droplet
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /var/www/html
+            sudo docker run -d -p 3000:3000 chidi150c/node20webapp:${{ github.sha }}
             
 # To use docker comment out the below and uncomment the above and vice versa  
 
@@ -107,15 +118,15 @@ jobs:
 #           rm -rf * ./README.md
 #           cp -R ../build/* .
 
-      - name: Copy files to DigitalOcean droplet
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.DROPLET_IP }}
-          username: ${{ secrets.DROPLET_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          source: './*'
-          target: '/var/www/html'
+#       - name: Copy files to DigitalOcean droplet
+#         uses: appleboy/scp-action@master
+#         with:
+#           host: ${{ secrets.DROPLET_IP }}
+#           username: ${{ secrets.DROPLET_USERNAME }}
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           port: ${{ secrets.SSH_PORT }}
+#           source: './*'
+#           target: '/var/www/html'
           
       - name: Restart web server
         uses: appleboy/ssh-action@master
