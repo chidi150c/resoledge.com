@@ -8,7 +8,7 @@ WORKDIR /webapp
 # COPY build/* .
 COPY package.json ./
 
-RUN npm ci --only=production
+RUN npm ci --production
 
 # Copy the application code to the container
 COPY src ./src
