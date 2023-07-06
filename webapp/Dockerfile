@@ -12,5 +12,5 @@ RUN npm install -g serve
 # Expose the port on which your application listens
 EXPOSE 3000
 
-# Start the React app using 'serve'
+# Startthe React app using 'serve'
 CMD ["serve", "-s", ".", "-l", "3000"]
