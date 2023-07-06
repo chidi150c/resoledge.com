@@ -19,7 +19,7 @@ COPY Dockerfile .
 RUN npm run build
 
 # Remove unnecessary files
-RUN rm -rf src public Dockerfile package*.json
+RUN rm -rf src public Dockerfile package*.json node_modules
 
 # Set the working directory for the built application
 WORKDIR /webapp/build
