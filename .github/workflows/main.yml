@@ -21,18 +21,6 @@ jobs:
       - name: Update npm
         run: npm install -g npm@latest
 
-#       - name: Install dependencies
-#         run: |
-#           cd ./webapp
-#           npm ci --only=production
-
-#       - name: Build app
-#         run: |
-#           cd ./webapp
-#           npm run build 
-#           ls -la
-
-#the following will be commented out to avoid docker 
       - name: Docker Login
         run: |
           docker logout
@@ -45,21 +33,6 @@ jobs:
           push: true
           tags: chidi150c/node20webapp:${{ github.sha }}
           
-#       - name: Deploy to DigitalOcean
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ secrets.DROPLET_IP }}
-#           username: ${{ secrets.DROPLET_USERNAME }}
-#           key: ${{ secrets.SSH_PRIVATE_KEY }}
-#           port: ${{ secrets.SSH_PORT }}
-#           key_type: rsa
-#           script: |
-#             set -e
-#             cd /var/www/html
-#             echo "Current directory: $(pwd)"
-#             ls -la
-#             sudo rm -rf *
-
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
         with:
@@ -77,48 +50,7 @@ jobs:
             sudo docker rmi -f $(sudo docker images -a -q)
             docker pull chidi150c/node20webapp:${{ github.sha }}
             docker run -d -p 3000:3000 chidi150c/node20webapp:${{ github.sha }}
-            
-# To use docker comment out the below and uncomment the above and vice versa  
-
-#       - name: Deploy to DigitalOcean
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ secrets.DROPLET_IP }}
-#           username: ${{ secrets.DROPLET_USERNAME }}
-#           key: ${{ secrets.SSH_PRIVATE_KEY }}
-#           port: ${{ secrets.SSH_PORT }}
-#           key_type: rsa
-#           script: |
-#             set -e
-#             cd /var/www/html
-#             echo "Current directory: $(pwd)"
-#             ls -la
-#             sudo rm -rf *
-
-#       - name: Add some more files to build folder
-#         run: |
-#           mkdir ../build
-#           cp -R ./webapp/package.json ./webapp/build/
-#           cp -R ./webapp/src/index.js ./webapp/build/ 
-#           cp -R ./webapp/Dockerfile ./webapp/build/           
-#           cp -R ./webapp/build/* ../build/
-#           rm -rf * ./webapp          
-#           rm -rf * .git          
-#           rm -rf * .gitignore
-#           rm -rf * .github
-#           rm -rf * ./README.md
-#           cp -R ../build/* .
-
-#       - name: Copy files to DigitalOcean droplet
-#         uses: appleboy/scp-action@master
-#         with:
-#           host: ${{ secrets.DROPLET_IP }}
-#           username: ${{ secrets.DROPLET_USERNAME }}
-#           key: ${{ secrets.SSH_PRIVATE_KEY }}
-#           port: ${{ secrets.SSH_PORT }}
-#           source: './*'
-#           target: '/var/www/html'
-          
+                      
       - name: Restart web server
         uses: appleboy/ssh-action@master
         with:
