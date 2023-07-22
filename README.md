@@ -4,7 +4,7 @@ Focus on your core business while we handle your IT infrastructure, support, and
 We provide strategic technology guidance to help you achieve your goals.
 
 
-### ########## Git Repository #################################
+### ########## Git Repository ################################
 
 …or create a new repository on the command line
 echo "# resoledgredo" >> README.md
