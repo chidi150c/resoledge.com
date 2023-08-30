@@ -32,7 +32,7 @@ jobs:
           context: ./webapp
           push: true
           tags: chidi150c/node20webapp:${{ github.sha }}
-          
+           
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
         with:
@@ -42,7 +42,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key_type: rsa
           script: |
-            cd /var/www/html
             docker logout
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker stop $(docker ps -q -f name=node20webap) || true
