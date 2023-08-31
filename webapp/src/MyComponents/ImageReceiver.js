@@ -100,7 +100,7 @@ class ImageReceiver extends Component {
             </table>
           </div>
           <div className="w3-quarter" style={{padding: '35px 10px'}}>
-            <img src={trading2} width="100%" height={"600px"} alt="Trading Chart" />            
+            <img src={trading2} width="100%" height={"410px"} alt="Trading Chart" />            
           </div>
         </div>
       </div>
