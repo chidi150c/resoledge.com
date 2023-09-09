@@ -117,37 +117,6 @@ h5{
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-rtc{
-  display: flex !important;
-  flex-direction: row !important;
-  float: left;
-}
-.rtc1{
-  padding: 70px 30px 30px;
-  width: 65%;
-  color: white;  
-}
-
-.rtc2{
-  padding: 70px 30px 70px 30px;
-  width: 40%;
-  height: 600px;
-  color: white;  
-}
-
-.graph-container {
-  width: 100% !important;
-  margin: 10px;
-  padding: 57px 25px 25px 25px;
-}
 /* Media query for small screens */
 @media (max-width: 768px) {
   .graph-container {
@@ -182,7 +151,94 @@ rtc{
 }
 
 
+/* Trading Dashboard Starts*/
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+  background-color: #032548;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Main Content Styles */
+.content {
+  background-color: white;
+  padding: 20px;
+  flex-basis: 70%;
+  font-size: 20px;
+}
+
+/* Feed and Statistics Styles */
+.feed {
+  background-color: white;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.feed h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Trading Table Styles */
+.trading-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trading-table th,
+.trading-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Market Data Styles */
+.market-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Performance Metrics Styles */
+.performance-metrics {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Charts Styles */
+.chart {
+  margin-top: 20px;
+}
+
+/* Alerts Styles */
+.alert {
+  background-color: #ffe3e3;
+  color: #d32f2f;
+  padding: 10px;
+  border: 1px solid #d32f2f;
+  margin-top: 20px;
+}
+
+/* Trading Dashboard ends */
 
 
 
