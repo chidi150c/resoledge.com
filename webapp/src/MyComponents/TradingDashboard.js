@@ -3,7 +3,7 @@ import "../App.css"; // Import your CSS file
 
 class TradingDashboard extends Component {
   render() {
-    const { imageSrc } = this.props;
+    const { appdat, trade, imageSrc } = this.props;
     return (
       <div className="container">
         <div className="main">
@@ -11,17 +11,17 @@ class TradingDashboard extends Component {
             <div className="market-data">
               <h2><b>Market Data</b></h2>
               {/* Display live market data */}
-              <p><b>Bitcoin:</b> $45,000</p>
-              <p><b>Ethereum:</b> $3,000</p>
-              <p><b>Cardano:</b> $2.5</p>
+              <p><b>{trade.symbol}:</b> ${trade.closing_prices}</p>
+              <p><b>Signal:</b>{trade.signals}</p>
               {/* ...other market data */}
             </div>
             <div className="performance-metrics">
               <h2><b>Performance Metrics</b></h2>
               {/* Display trading performance metrics */}
-              <p><b>Account Balance:</b> $10,000</p>
-              <p><b>Win Rate:</b> 70%</p>
-              <p><b>Total Trades:</b> 100</p>
+              <p><b>Initial Capital:</b>${trade.initial_capital}</p>
+              <p><b>Balance OutTrade:</b> ${trade.quote_balance}</p>
+              <p><b>Total Profit:</b> ${appdat.target_profit}</p>
+              <p><b>Total Trades:</b>{trade.trade_count}</p>
               {/* ...other performance metrics */}
             </div>
             <div className="chart"> 

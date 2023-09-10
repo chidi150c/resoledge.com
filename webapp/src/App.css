@@ -62,38 +62,8 @@ h5{
   height: 40vmin;
   pointer-events: none;
 }
-
-/* Styles for larger screens */
-
-
-
-@media (max-width: 900px) {
-  /* Jumbo carousel images and params */
-  .bgimg-1 {  
-    width: 100%;
-    height: 450px;
-    background-position: center;
-    background-size: cover;
-    background-image: url("./Assets/mac.jpg");
-    font-family: "Anton";
-  }
-  .bgimg-2 {  
-    width: 100%;
-    height: 450px;
-    background-position: center;
-    background-size: cover;
-    background-image: url("./Assets/vsat.png");
-    font-family: "Anton";
-  }
-  .bgimg-3 {  
-    width: 100%;
-    height: 450px;
-    background-position: center;
-    background-size: cover;
-    background-image: url("./Assets/SERVER2.jpg");
-    font-family: "Anton";
-  }
-  /* CSS styles specifically for screens with a maximum width of 768 pixels or smaller go here */
+.w3-panel {
+  margin-top: 74px !important;
 }
 
 .promo{  
@@ -119,6 +89,34 @@ h5{
 
 /* Media query for small screens */
 @media (max-width: 768px) {
+  /* Jumbo carousel images and params */
+  .bgimg-1 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./Assets/mac.jpg");
+    font-family: "Anton";
+  }
+  .bgimg-2 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./Assets/vsat.png");
+    font-family: "Anton";
+  }
+  .bgimg-3 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./Assets/SERVER2.jpg");
+    font-family: "Anton";
+  }
+  .w3-panel {
+    margin-top: 74px !important;
+  }
   .graph-container {
     width: 100%; /* Adjust the width for small screens */
     font-size: 20px;
@@ -126,16 +124,98 @@ h5{
     flex-direction: column !important;
     /* Add any other styling adjustments */
   }
+    
+  /* Market Data Styles */
+  .market-data {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Performance Metrics Styles */
+  .performance-metrics {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #chart{
+    margin: 19px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .w3-quarter .w3-half{
+    width: 100%;
+  }
 }
 
 /* Media query for medium screens */
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* Jumbo carousel images and params */
+  .bgimg-1 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./Assets/mac.jpg");
+    font-family: "Anton";
+  }
+  .bgimg-2 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./Assets/vsat.png");
+    font-family: "Anton";
+  }
+  .bgimg-3 {  
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("./Assets/SERVER2.jpg");
+    font-family: "Anton";
+  }
+  .w3-panel {
+    margin-top: 74px !important;
+  }
   .graph-container {
     width: 80%; /* Adjust the width for medium screens */
     font-size: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     /* Add any other styling adjustments */
+  }
+  .w3-half{
+    width: 80%!important;
+    
+  }
+  .w3-quarter{
+    width: 80%!important;
+  }
+  /* Market Data Styles */
+  .market-data {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Performance Metrics Styles */
+  .performance-metrics {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #chart{
+    margin: 19px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -147,6 +227,17 @@ h5{
     display: flex;
     flex-direction: row;
     /* Add any other styling adjustments */
+  }
+  #chart{
+    margin: 19px;
+    display: flex;
+    flex-direction: row !important;
+  }
+  .w3-panel {
+    margin-top: 74px !important;
+  }
+  .w3-half{
+    margin-top: 0 32px !important;
   }
 }
 
@@ -163,9 +254,11 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
-
+#chart{
+  margin: '19px';
+  display: 'flex';
+}
 /* Header Styles */
 .header {
   background-color: #032548;
