@@ -4,7 +4,7 @@ function Ourskills(){
     return(
         <div className="skills-bground">            
             {/* Skills Section */}
-            <div className="w3-container w3-xlarge w3-text-light-grey w3-padding-64">
+            <div className="w3-container w3-xlarge w3-padding-64">
             <div className="w3-row-padding">
                 <div className="w3-col m6">
                 <h1>Our Services.</h1>

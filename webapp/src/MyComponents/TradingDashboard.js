@@ -4,12 +4,13 @@ import "../App.css"; // Import your CSS file
 class TradingDashboard extends Component {
   render() {
     const { appdat, trade, imageSrc } = this.props;
+    const asset = (trade.base_balance * trade.current_price + trade.quote_balance)
     return (
       <div className="container">
         <div className="main">
-          <div className="content">
+          <div className="content skills-bground">
             <div className="market-data">
-              <h2><b>Market Data</b></h2>
+              <h2><b>Auto-Trading On:</b></h2>
               {/* Display live market data */}
               <p><b>{trade.symbol}:</b> ${trade.closing_prices}</p>
               <p><b>Signal:</b>{trade.signals}</p>
@@ -18,10 +19,10 @@ class TradingDashboard extends Component {
             <div className="performance-metrics">
               <h2><b>Performance Metrics</b></h2>
               {/* Display trading performance metrics */}
-              <p><b>Initial Capital:</b>${trade.initial_capital}</p>
-              <p><b>Balance OutTrade:</b> ${trade.quote_balance}</p>
-              <p><b>Total Profit:</b> ${appdat.target_profit}</p>
-              <p><b>Total Trades:</b>{trade.trade_count}</p>
+              <p><b>Initial Capital:</b>${trade.initial_capital !== undefined ? trade.initial_capital.toFixed(6) : 'N/A'}</p>
+              <p><b>Available Balance:</b> ${trade.quote_balance !== undefined ? trade.quote_balance.toFixed(6) : 'N/A'}</p>
+              <p><b>Total Profit:</b> ${appdat.target_profit !== undefined ? appdat.target_profit.toFixed(6) : 'N/A'}</p>
+              <p><b>Asset Value:</b>{asset !== undefined ? asset.toFixed(6) : 'N/A'}</p>
               {/* ...other performance metrics */}
             </div>
             <div className="chart"> 
@@ -34,11 +35,38 @@ class TradingDashboard extends Component {
               )}  
             </div>
             <div className="feed">
-              <h3><b>Live Trading Feeds</b></h3>
-              {/* Display live trading feeds */}
-              <p><b>Buy:</b> BTC/USD @ $45,500</p>
-              <p><b>Sell:</b> ETH/USD @ $3,200</p>
-              {/* ...other live trading feeds */}
+
+
+
+            <h2>Trade History:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Bought Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {trade.entry_price.map((price, index) => (
+          <tr key={index}>
+            <td>{index}</td>
+            <td>{price}</td>
+            <td>
+              {trade.entry_quantity && trade.entry_quantity.length > index
+                ? trade.entry_quantity[index]
+                : 'N/A'}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+
+
+
+
+
             </div>
             <div className="statistics">
               <h3><b>Statistics</b></h3>

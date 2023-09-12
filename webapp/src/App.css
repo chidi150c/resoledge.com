@@ -33,7 +33,8 @@ p {
   margin-bottom:75px;
 }
 .skills-bground{
-  background-color: #000000d9;
+  background-color: #292c31;/*#000000d9;*/
+  color:#f1f1f1!important;
 }
 .w3-jumbo{  
   font-size: 45px!important;
@@ -85,6 +86,13 @@ h5{
 
 .App-link {
   color: #61dafb;
+}
+.w3-quarter #w3qtrmod {
+  padding: 0!important;
+}
+#w3qtr2mod{
+  padding-right: 0!important;
+  margin-right: 0px!important;
 }
 
 /* Media query for small screens */
@@ -139,14 +147,22 @@ h5{
     justify-content: center;
   }
   #chart{
-    margin: 19px;
+    /* margin: 19px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
   }
   .w3-quarter .w3-half{
     width: 100%;
+  }
+  #w3qtrmod .w3-quarter{
+    padding: 0!important;
+  }
+  #w3qtr2mod{
+    padding-right: 0!important;
+    margin-right: 0px!important;
   }
 }
 
@@ -211,11 +227,16 @@ h5{
   }
   
   #chart{
-    margin: 19px;
+    /* margin: 19px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
+  }
+  
+  #w3qtrmod .w3-quarter{
+    padding: 0!important;
   }
 }
 
@@ -229,15 +250,19 @@ h5{
     /* Add any other styling adjustments */
   }
   #chart{
-    margin: 19px;
+    /* margin: 19px; */
     display: flex;
     flex-direction: row !important;
+    padding: 0;
   }
   .w3-panel {
     margin-top: 74px !important;
   }
   .w3-half{
     margin-top: 0 32px !important;
+  }  
+  #w3qtrmod .w3-quarter{
+    padding: 0!important;
   }
 }
 
@@ -256,20 +281,21 @@ body {
   margin: 0 auto;
 }
 #chart{
-  margin: '19px';
+  /* margin: '19px'; */
   display: 'flex';
+  padding: 0;
 }
 /* Header Styles */
 .header {
-  background-color: #032548;
-  color: white;
+  /* background-color: #032548; */
+  /* color: white; */
   text-align: center;
   padding: 10px;
 }
 
 /* Main Content Styles */
 .content {
-  background-color: white;
+  /* background-color: white; */
   padding: 20px;
   flex-basis: 70%;
   font-size: 20px;
@@ -277,7 +303,7 @@ body {
 
 /* Feed and Statistics Styles */
 .feed {
-  background-color: white;
+  /* background-color: white; */
   border: 1px solid #ddd;
   margin-top: 20px;
   padding: 10px;
@@ -320,6 +346,7 @@ body {
 /* Charts Styles */
 .chart {
   margin-top: 20px;
+  padding: 0;
 }
 
 /* Alerts Styles */
