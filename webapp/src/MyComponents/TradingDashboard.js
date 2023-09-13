@@ -36,43 +36,39 @@ class TradingDashboard extends Component {
             </div>
             <div className="feed">
 
-
-
-            <h2>Trade History:</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Index</th>
-          <th>Bought Price</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        {trade.entry_price.map((price, index) => (
-          <tr key={index}>
-            <td>{index}</td>
-            <td>{price}</td>
-            <td>
-              {trade.entry_quantity && trade.entry_quantity.length > index
-                ? trade.entry_quantity[index]
-                : 'N/A'}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-
-
-
-
-
-
+            <h2>Open Trades:</h2>
+            {trade.entry_price && trade.entry_quantity && trade.entry_price.length > 0 && trade.entry_quantity.length > 0 ? (
+            <table>
+              <thead>
+                <tr>
+                  <th>Index</th>
+                  <th>Bought Price</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trade.entry_price.map((price, index) => (
+                  <tr key={index}>
+                    <td>{index}</td>
+                    <td>{price}</td>
+                    <td>
+                      {trade.entry_quantity.length > index
+                        ? trade.entry_quantity[index]
+                        : 'N/A'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            ) : (
+              <p>No pending trades available</p>
+            )}
             </div>
             <div className="statistics">
               <h3><b>Statistics</b></h3>
               {/* Display trading statistics */}
-              <p><b>Winning Trades:</b> 70</p>
-              <p><b>Losing Trades:</b> 30</p>
+              <p><b>Winning Trades:</b>{trade.closed_win_trades !== undefined ? trade.closed_win_trades.toFixed(6) : 'N/A'}</p>
+              <p><b>Total Trades:</b> {trade.trade_count !== undefined ? trade.trade_count.toFixed(6) : 'N/A'}</p>
               {/* ...other trading statistics */}
             </div>
           </div>

@@ -18,9 +18,9 @@ class ImageReceiver extends Component {
     },
       appData: {},
     };
-    this.socket = new WebSocket.w3cwebsocket("ws://localhost:35260/ImageReceiver/ws"); //176.58.125.70  localhost
-    this.trader = new WebSocket.w3cwebsocket("ws://localhost:35260/FeedsTradingSystem/ws"); //176.58.125.70  localhost
-    this.appdata = new WebSocket.w3cwebsocket("ws://localhost:35260/FeedsAppData/ws"); //176.58.125.70  localhost
+    this.socket = new WebSocket.w3cwebsocket("ws://my-golang-app:35260/ImageReceiver/ws"); //176.58.125.70  localhost
+    this.trader = new WebSocket.w3cwebsocket("ws://my-golang-app:35260/FeedsTradingSystem/ws"); //176.58.125.70  localhost
+    this.appdata = new WebSocket.w3cwebsocket("ws://my-golang-app:35260/FeedsAppData/ws"); //176.58.125.70  localhost
   }
 
   componentDidMount() {
@@ -189,7 +189,7 @@ class ImageReceiver extends Component {
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Target Profit (complete trade)</b></td>
+                <td><b>Target Profit (closed trade)</b></td>
                 <td><i>{appData.target_profit !== undefined ? appData.target_profit.toFixed(6) : 'N/A'}</i></td>
               </tr>
               <tr>
