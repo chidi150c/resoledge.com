@@ -40,27 +40,27 @@ class ImageReceiver extends Component {
       });
     };
     this.trader.onmessage = (event) => {
-      console.log("WebSocket received TradingSystem", event.data);
+      // console.log("WebSocket received TradingSystem", event.data);
       const receivedData = event.data;
       try {
         const tradingSystemData = JSON.parse(receivedData);
         this.setState({
           tradingSystem: tradingSystemData,
         });
-        console.log("Received tradingSystem data:", tradingSystemData);
+        // console.log("Received tradingSystem data:", tradingSystemData);
       } catch (error) {
         console.error("Error parsing tradingSystem data:", error);
       }
     };
     this.appdata.onmessage = (event) => {
-      console.log("WebSocket received AppData", event.data);
+      // console.log("WebSocket received AppData", event.data);
       const receivedData = event.data;
       try {
         const appData = JSON.parse(receivedData);
         this.setState({
           appData: appData,
         });
-        console.log("Received appData data:", appData);
+        // console.log("Received appData data:", appData);
       } catch (error) {
         console.error("Error parsing appData data:", error);
       }
