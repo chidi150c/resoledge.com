@@ -27,7 +27,7 @@ WORKDIR /webapp/build
 # Install 'serve' globally
 RUN npm install -g serve
 # Expose the port on which your application listens
-EXPOSE 3000
+EXPOSE 35259
 
 # Startthe React app using 'serve'
-CMD ["serve", "-s", ".", "-l", "3000"]
+CMD ["serve", "-s", ".", "-l", "35259"]
