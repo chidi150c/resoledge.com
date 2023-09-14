@@ -18,11 +18,11 @@ class ImageReceiver extends Component {
     },
       appData: {},
     };
-    this.socket = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/ImageReceiver/ws"); //176.58.125.70  localhost
-    this.trader = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsTradingSystem/ws"); //176.58.125.70  localhost
-    this.appdata = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsAppData/ws"); //176.58.125.70  localhost
+    this.socket = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/ImageReceiver/ws"); //176.58.125.70  my-golang-app
+    this.trader = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsTradingSystem/ws"); //176.58.125.70  my-golang-app
+    this.appdata = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsAppData/ws"); //176.58.125.70  my-golang-app
   }
-
+ 
   componentDidMount() {
     this.socket.onopen = () => {
       console.log("WebSocket connected for Chart Image");
@@ -104,11 +104,11 @@ class ImageReceiver extends Component {
     
     return (
       <div className="w3-panel" id="w3qtr2mod">
-        <div className="header skills-bground">
+        <div className="header skills-bground lfeed" id="skround">
           <h2><b>Automatic Cryptocurrency Trading Dashboard</b></h2>
         </div>
         <div className="w3-row-padding" id="chart" >          
-          <div className="w3-quarter" >
+          <div className="w3-quarter lfeed" >
             <h2 style={{color: 'white'}}>Live! Trading Feeds</h2>
             <table className="w3-table skills-bground">
             <tbody>
@@ -228,7 +228,7 @@ class ImageReceiver extends Component {
             </tbody>
             </table>
           </div>
-          <div className="w3-half" id="w3half">
+          <div className="w3-half lfeed" style={{marginBottom: '20px', padding: '0 0 0 16px'}}>
           <h2 style={{color: 'white'}}>Chart</h2>
             <TradingDashboard 
               appdat={appData} 

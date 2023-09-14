@@ -28,10 +28,6 @@ p {
   background-image: url("./Assets/SERVER2.jpg");
   font-family: "Anton";
 }
-#w3half{
-  margin-bottom: 20px;
-  padding: 0 0 0 16px;
-}
 .skillspace{
   margin-top:20px;
   margin-bottom:75px;
@@ -102,15 +98,8 @@ h5{
 /* Media query for small screens */
 @media (max-width: 768px) {
   /* Jumbo carousel images and params */
-  .skills-bground{
-    margin-right: 18px;
-    background-color: #292c31;/*#000000d9;*/
-    color:#f1f1f1!important;
-  }
-  
-  #w3half{
-    margin-bottom: 18px;
-    padding: 0 20px 0 16px;
+  .lfeed{
+    padding: 0 16px 0 0 !important;
   }
   .bgimg-1 {  
     width: 100%;
@@ -177,6 +166,9 @@ h5{
   #w3qtr2mod{
     padding-right: 0!important;
     margin-right: 0px!important;
+  }
+  #skround{
+    margin-right: 16px!important;
   }
 }
 
