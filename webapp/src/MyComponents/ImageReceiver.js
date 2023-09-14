@@ -18,9 +18,9 @@ class ImageReceiver extends Component {
     },
       appData: {},
     };
-    this.socket = new WebSocket.w3cwebsocket("ws://my-golang-app:35260/ImageReceiver/ws"); //176.58.125.70  localhost
-    this.trader = new WebSocket.w3cwebsocket("ws://my-golang-app:35260/FeedsTradingSystem/ws"); //176.58.125.70  localhost
-    this.appdata = new WebSocket.w3cwebsocket("ws://my-golang-app:35260/FeedsAppData/ws"); //176.58.125.70  localhost
+    this.socket = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/ImageReceiver/ws"); //176.58.125.70  localhost
+    this.trader = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsTradingSystem/ws"); //176.58.125.70  localhost
+    this.appdata = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsAppData/ws"); //176.58.125.70  localhost
   }
 
   componentDidMount() {
@@ -228,7 +228,7 @@ class ImageReceiver extends Component {
             </tbody>
             </table>
           </div>
-          <div className="w3-half" style={{marginBottom: '20px', padding: '0 0 0 16px'}}>
+          <div className="w3-half" id="w3half">
           <h2 style={{color: 'white'}}>Chart</h2>
             <TradingDashboard 
               appdat={appData} 
