@@ -21,7 +21,7 @@ class TradingDashboard extends Component {
               {/* Display trading performance metrics */}
               <p><b>Initial Capital:</b>${trade.initial_capital !== undefined ? trade.initial_capital.toFixed(6) : 'N/A'}</p>
               <p><b>Available Balance:</b> ${trade.quote_balance !== undefined ? trade.quote_balance.toFixed(6) : 'N/A'}</p>
-              <p><b>Total Profit:</b> ${appdat.target_profit !== undefined ? appdat.target_profit.toFixed(6) : 'N/A'}</p>
+              <p><b>Total Profit:</b> ${appdat.total_profit_loss !== undefined ? appdat.total_profit_loss.toFixed(6) : 'N/A'}</p>
               <p><b>Asset Value:</b>{asset !== undefined ? asset.toFixed(6) : 'N/A'}</p>
               {/* ...other performance metrics */}
             </div>

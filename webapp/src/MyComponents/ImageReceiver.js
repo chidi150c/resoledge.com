@@ -116,7 +116,7 @@ class ImageReceiver extends Component {
               imageSrc={this.state.imageData ? `data:image/png;base64,${this.state.imageData}` : ""}
             />
           </div>        
-          <div className="w3-quarter lfeed" >
+          <div className="w3-quarter lfeed" id="lfeedbox">
             <h2 style={{color: 'white'}}>Live! Trading Feeds</h2>
             <table className="w3-table skills-bground">
             <tbody>

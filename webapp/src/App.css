@@ -170,6 +170,9 @@ h5{
   #skround{
     margin-right: 16px!important;
   }
+  .content{    
+    padding: 5px;
+  }
 }
 
 /* Media query for medium screens */
@@ -246,33 +249,6 @@ h5{
   }
 }
 
-/* Media query for large screens */
-@media (min-width: 1025px) {
-  .graph-container {
-    width: 60%; /* Adjust the width for large screens */
-    font-size: 20px;
-    display: flex;
-    flex-direction: row;
-    /* Add any other styling adjustments */
-  }
-  #chart{
-    /* margin: 19px; */
-    display: flex;
-    flex-direction: row !important;
-    padding: 0;
-  }
-  .w3-panel {
-    margin-top: 74px !important;
-  }
-  .w3-half{
-    margin-top: 0 32px !important;
-  }  
-  #w3qtrmod .w3-quarter{
-    padding: 0!important;
-  }
-}
-
-
 /* Trading Dashboard Starts*/
 /* General Styles */
 body {
@@ -298,13 +274,16 @@ body {
   text-align: center;
   padding: 10px;
 }
-
+#lfeedbox{
+  padding-right: 0px;
+  font-size: 10px;
+}
 /* Main Content Styles */
 .content {
   /* background-color: white; */
-  padding: 5px;
   flex-basis: 70%;
   font-size: 15px;
+  padding: 0 15px;
 }
 
 /* Feed and Statistics Styles */
@@ -338,7 +317,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 /* Performance Metrics Styles */
