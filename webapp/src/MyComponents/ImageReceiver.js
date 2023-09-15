@@ -107,7 +107,15 @@ class ImageReceiver extends Component {
         <div className="header skills-bground lfeed" id="skround">
           <h2><b>Automatic Cryptocurrency Trading Dashboard</b></h2>
         </div>
-        <div className="w3-row-padding" id="chart" >          
+        <div className="w3-row-padding" id="chart" >  
+          <div className="w3-half lfeed" style={{marginBottom: '20px', padding: '0 0 0 16px'}}>
+          <h2 style={{color: 'white'}}>Chart</h2>
+            <TradingDashboard 
+              appdat={appData} 
+              trade={tradingSystem} 
+              imageSrc={this.state.imageData ? `data:image/png;base64,${this.state.imageData}` : ""}
+            />
+          </div>        
           <div className="w3-quarter lfeed" >
             <h2 style={{color: 'white'}}>Live! Trading Feeds</h2>
             <table className="w3-table skills-bground">
@@ -227,14 +235,6 @@ class ImageReceiver extends Component {
               </tr>
             </tbody>
             </table>
-          </div>
-          <div className="w3-half lfeed" style={{marginBottom: '20px', padding: '0 0 0 16px'}}>
-          <h2 style={{color: 'white'}}>Chart</h2>
-            <TradingDashboard 
-              appdat={appData} 
-              trade={tradingSystem} 
-              imageSrc={this.state.imageData ? `data:image/png;base64,${this.state.imageData}` : ""}
-            />
           </div>
           <div className="w3-quarter" id="w3qtrmod">
             <img src={trading2} width="100%" height="100%" alt="Trading Chart" />            
