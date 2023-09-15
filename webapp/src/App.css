@@ -302,7 +302,7 @@ body {
 /* Main Content Styles */
 .content {
   /* background-color: white; */
-  padding: 20px;
+  padding: 5px;
   flex-basis: 70%;
   font-size: 15px;
 }
