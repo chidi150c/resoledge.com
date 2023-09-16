@@ -25,8 +25,8 @@ function Header() {
           <Link to="/" className="w3-bar-item w3-button"><i className="fa fa-user"></i>HOME </Link>
           <Link to="/academy" className="w3-bar-item w3-button"><i className="fa fa-user"></i>ACADEMY</Link>
           <Link to="/forex" className="w3-bar-item w3-button"><i className="fa fa-th"></i>FOREX</Link>
-          <Link to="/academy" className="w3-bar-item w3-button"><i className="fa fa-usd"></i> SIGN IN</Link>
-          <Link to="/academy" className="w3-bar-item w3-button"><i className="fa fa-envelope"></i> SIGN OUT</Link>
+          <Link to="/forex" className="w3-bar-item w3-button"><i className="fa fa-usd"></i> SIGN IN</Link>
+          <Link to="/" className="w3-bar-item w3-button"><i className="fa fa-envelope"></i> SIGN OUT</Link>
         </div>   
         
       {isMobile && (

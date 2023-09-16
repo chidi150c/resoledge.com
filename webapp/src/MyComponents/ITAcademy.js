@@ -20,7 +20,7 @@ function ITAcademy() {
 
         <nav>
           <ul>
-            <li><Link to="/academy">Home</Link></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/academy">Courses</Link></li>
             <li><Link to="/academy">Instructors</Link></li>
             <li><Link to="/academy">Events</Link></li>
