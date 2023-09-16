@@ -95,6 +95,9 @@ h5{
   margin-right: 0px!important;
 }
 
+#skround{
+  color: burlywood;
+}
 /* Media query for small screens */
 @media (max-width: 768px) {
   /* Jumbo carousel images and params */
@@ -168,6 +171,7 @@ h5{
     margin-right: 0px!important;
   }
   #skround{
+    color: burlywood;
     margin-right: 16px!important;
   }
   .content{    

@@ -108,7 +108,7 @@ class ImageReceiver extends Component {
     return (
       <div className="w3-panel" id="w3qtr2mod">
         <div className="header skills-bground lfeed" id="skround">
-          <h2 className="w3-text-white"><b>Automatic Cryptocurrency Trading Dashboard</b></h2>
+          <h2 className="w3-text-white"><b>Automatic Cryptocurrency Trading</b></h2>
         </div>
         <div className="w3-row-padding" id="chart" >  
           <div className="w3-half lfeed" style={{marginBottom: '20px', padding: '0 0 0 16px'}}>
@@ -142,6 +142,11 @@ class ImageReceiver extends Component {
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Total Trades</b></td>
                 <td><i>{tradingSystem.trade_count} trades</i></td>
+              </tr>
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Polled Data Points</b></td>
+                <td><i>{tradingSystem.data_point} pts</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
@@ -182,11 +187,6 @@ class ImageReceiver extends Component {
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Next Sell Price</b></td>
                 <td><i>Above {nextProfitSellPrice !== null ? nextProfitSellPrice.toFixed(6) : 'N/A'} USDT</i></td>
-              </tr>
-              <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Polled Data Points</b></td>
-                <td><i>{tradingSystem.data_point} pts</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
