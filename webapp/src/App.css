@@ -99,7 +99,7 @@ h5{
 @media (max-width: 768px) {
   /* Jumbo carousel images and params */
   .lfeed{
-    padding: 0 16px 0 0 !important;
+    padding: 0 12px 0 0 !important;
   }
   .bgimg-1 {  
     width: 100%;
