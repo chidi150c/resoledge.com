@@ -108,7 +108,7 @@ class ImageReceiver extends Component {
     return (
       <div className="w3-panel" id="w3qtr2mod">
         <div className="header skills-bground lfeed" id="skround">
-          <h2><b>Automatic Cryptocurrency Trading Dashboard</b></h2>
+          <h2 className="w3-text-white"><b>Automatic Cryptocurrency Trading Dashboard</b></h2>
         </div>
         <div className="w3-row-padding" id="chart" >  
           <div className="w3-half lfeed" style={{marginBottom: '20px', padding: '0 0 0 16px'}}>
@@ -120,8 +120,8 @@ class ImageReceiver extends Component {
             />
           </div>        
           <div className="w3-quarter lfeed" id="lfeedbox">
-            <h2 style={{color: 'white'}}>Live! Trading Feeds</h2>
-            <table className="w3-table skills-bground">
+            <h2 style={{color: 'white'}}>Live Feed</h2>
+            <table className="w3-text-white w3-table skills-bground">
             <tbody>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
