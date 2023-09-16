@@ -2,7 +2,7 @@ import React from "react"
 
 function Ourskills(){
     return(
-        <div className="skills-bground">            
+        <div className="skills-bground w3-text-white">            
             {/* Skills Section */}
             <div className="w3-container w3-xlarge w3-padding-64">
             <div className="w3-row-padding">
