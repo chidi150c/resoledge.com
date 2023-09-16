@@ -59,7 +59,7 @@ class TradingDashboard extends Component {
                 </tbody>
               </table>
               ) : (
-                <p className="statistics w3-text-wite">No pending trades available</p>
+                <p className="statistics w3-text-white">No pending trades available</p>
               )}
             </div>
             <div className="statistics w3-text-green">
