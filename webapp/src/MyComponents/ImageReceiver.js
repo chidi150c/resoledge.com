@@ -9,6 +9,9 @@ class ImageReceiver extends Component {
     this.state = {
       imageData: "",  // Initialize with empty string
       tradingSystem: {    
+        ClosingPrices:       [],
+        Timestamps:          [],
+        Signals:             [],
         NextInvestBuYPrice:  [],
         NextProfitSeLLPrice: [],
         EntryPrice:          [],

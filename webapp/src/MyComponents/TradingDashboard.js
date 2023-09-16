@@ -12,8 +12,8 @@ class TradingDashboard extends Component {
             <div className="market-data">
               <h2><b>Auto-Trading On:</b></h2>
               {/* Display live market data */}
-              <p><b>{trade.symbol}:</b> ${trade.closing_prices}</p>
-              <p><b>Signal:</b>{trade.signals}</p>
+              <p><b>{trade.symbol}:</b> ${trade.closing_prices && trade.closing_prices.length >= 1? trade.closing_prices[trade.closing_prices.length - 1]: 'N/A'}</p>
+              <p><b>Signal:</b>{trade.signals && trade.signals.length >= 1? trade.signals[trade.signals.length-1] : "N/A"}</p>
               {/* ...other market data */}
             </div>
             <div className="performance-metrics">
