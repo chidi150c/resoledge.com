@@ -34,13 +34,11 @@ function Home() {
             </div>
             {/* Promo Section - "About US" */}
             <div className="w3-row promo">
-                <div className="w3-text-white">
                     <div className="w3-col m8 w3-container w3-text-white">
                         <h1 style={{color: 'white!important'}}>About Us</h1>
                         <h2 style={{color: 'white!important'}}>At Resoledge, we are passionate about technology and its potential to transform businesses. With a team of experienced professionals, we specialize in delivering tailored IT solutions that address our clients' unique challenges. From software development to network optimization, cloud computing and cybersecurity, we offer comprehensive services that drive growth and efficiency.</h2>
                     </div>
-                    <p><Link to="/academy" className="w3-button w3-black"><i className="fa fa-th"> </i> View Our Works</Link></p>
-                </div>
+                    <p><Link to="/forex" className="w3-button w3-black"><i className="fa fa-th"> </i> View Our Works</Link></p>
                 <div className="w3-col m4 w3-container w3-panel">
                     <img src={vsatImage} alt="Buildings" width="100%" height="494" />
                 </div>
