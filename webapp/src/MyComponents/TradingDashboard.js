@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ZoomableImage from "./ZoomableImage";
 import "../App.css"; // Import your CSS file
 
 class TradingDashboard extends Component {
@@ -25,13 +26,7 @@ class TradingDashboard extends Component {
               {/* ...other performance metrics */}
             </div>
             <div className="chart"> 
-                {imageSrc && (
-                  <img
-                    src={imageSrc}
-                    alt="Received Image"
-                    style={{ maxWidth: '100%', maxHeight: '590px' }}
-                  />
-                )}
+              <ZoomableImage src={imageSrc} />
             </div>
             <div className="feed w3-text-green">
               <h2>Open Trades:</h2>
