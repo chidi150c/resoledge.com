@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { TransformComponent } from 'react-zoom-pan-pinch';
 import "../App.css"; // Import your CSS file
 
 class TradingDashboard extends Component {
@@ -26,7 +25,6 @@ class TradingDashboard extends Component {
               {/* ...other performance metrics */}
             </div>
             <div className="chart"> 
-              <TransformComponent>
                 {imageSrc && (
                   <img
                     src={imageSrc}
@@ -34,7 +32,6 @@ class TradingDashboard extends Component {
                     style={{ maxWidth: '100%', maxHeight: '590px' }}
                   />
                 )}
-              </TransformComponent>
             </div>
             <div className="feed w3-text-green">
               <h2>Open Trades:</h2>
