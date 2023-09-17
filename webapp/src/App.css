@@ -73,6 +73,27 @@ h5{
   font-size: 30px;
   color: white;
 }
+
+.zoom-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.zoom-button, 
+.reset-button {
+  padding: 0px 0px;
+  background-color: #4caf50;
+  color: #eef3ed;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.reset-button {
+  background-color: #007bff;
+}
+        
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -98,6 +119,11 @@ h5{
 /* Media query for small screens */
 @media (max-width: 768px) {
   /* Jumbo carousel images and params */
+  
+  .zoom-button, 
+  .reset-button {
+    font-size: 10px!important;
+  }
   .lfeed{
     padding: 0 12px 0 0 !important;
   }

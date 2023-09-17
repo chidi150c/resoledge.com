@@ -13,25 +13,43 @@ function ZoomableImage({ src }) {
     }
   };
 
+  const handleResetZoom = () => {
+    setZoom(1);
+  };
+
   return (
     <div>
-      <button onClick={handleZoomIn}>Zoom In</button>
-      <button onClick={handleZoomOut}>Zoom Out</button>
+      <div className="zoom-buttons">
+        <button className="zoom-button" onClick={handleZoomIn}>
+          + Zoom In
+        </button>
+        <button className="zoom-button" onClick={handleZoomOut}>
+          - Zoom Out
+        </button>
+        <button className="reset-button" onClick={handleResetZoom}>
+          Reset Zoom
+        </button>
+      </div>
       <div
         style={{
-          overflow: 'hidden',
-          maxWidth: '100%', 
-          maxHeight: '590px' ,
+          overflow: 'auto',
+          maxWidth: '100%',
+          maxHeight: '605px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <img        
+        <img
           src={src}
           alt="Zoomable Image"
           style={{
-            width: '100%',
-            height: '100%',
-            transform: `scale(${zoom})`,
-            transformOrigin: '0 0',
+            maxWidth: '100%',
+            height: 'auto',
+            transform: `scaleX(${zoom})`, // Scale only horizontally
+            transformOrigin: 'right center', // Set the transform origin to the right
+            // transform: `scale(${zoom})`,
+            // transformOrigin: 'center center',
           }}
         />
       </div>
