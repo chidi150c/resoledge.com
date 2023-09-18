@@ -24,6 +24,7 @@ function ZoomableImage({ src }) {
         </button>
       </div>
       <div
+        className="image-container"
         style={{
           overflow: 'auto',
           maxWidth: '100%',

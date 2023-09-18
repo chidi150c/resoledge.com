@@ -82,18 +82,30 @@ h5{
 .zoom-button, 
 .reset-button {
   padding: 0px 0px;
-  background-color: #4caf50;
+  background-color: #39513a;
   color: #eef3ed;
-  border: none;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 10px;
+  border-color: #278f478f;
 }
 .reset-button {
   background-color: #007bff;
 }
         
 
+/* Custom scrollbar styles */
+.image-container::-webkit-scrollbar {
+  width: 9px; /* Width of the scrollbar */
+  height: 9px;
+}
+.image-container::-webkit-scrollbar-thumb {
+  background-color: #454945; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners of the thumb */
+}
+.image-container::-webkit-scrollbar-track {
+  background-color: #909690; /* Color of the scrollbar track */
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -119,7 +131,10 @@ h5{
 /* Media query for small screens */
 @media (max-width: 768px) {
   /* Jumbo carousel images and params */
-  
+  .image-container::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+    height: 4px;
+  }
   .zoom-button, 
   .reset-button {
     font-size: 10px!important;
