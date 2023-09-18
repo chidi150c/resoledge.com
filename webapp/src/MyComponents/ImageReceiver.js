@@ -144,14 +144,14 @@ class ImageReceiver extends Component {
                 <td><i>{tradingSystem.trade_count} trades</i></td>
               </tr>
               <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><i className="fa fa-share-total_profitalt w3-text-green w3-large"></i></td>
                 <td><b>Polled Data Points</b></td>
                 <td><i>{tradingSystem.data_point} pts</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>Total Profit</b></td>
-                <td><i>{appData.target_profit} USDT</i></td>
+                <td><i>{appData.total_profit_loss !== undefined ? appData.total_profit_loss.toFixed(6) : 'N/A'} USDT</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-users w3-text-yellow w3-large"></i></td>
