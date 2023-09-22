@@ -4,14 +4,18 @@ function ZoomableImage({ src }) {
   const [zoom, setZoom] = useState(1);
   const handleZoomIn = () => {
     var newZoom = zoom - 10;    
-    updateZoomedImage(newZoom); // Send the new zoom value to the backend
-    setZoom(newZoom); // Update the zoom state
+    if (newZoom >= 10) {
+      setZoom(newZoom); // Update the zoom state
+      updateZoomedImage(newZoom); // Send the new zoom value to the backend
+    }
   };
 
   const handleZoomOut = () => {
-    var newZoom = zoom + 10;      
-    updateZoomedImage(newZoom); // Send the new zoom value to the backend
-    setZoom(newZoom); // Update the zoom state
+    var newZoom = zoom + 10;       
+    if (newZoom <= 499) {
+      setZoom(newZoom); // Update the zoom state
+      updateZoomedImage(newZoom); // Send the new zoom value to the backend
+    }
   };
 
   return (
