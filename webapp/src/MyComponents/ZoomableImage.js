@@ -2,21 +2,16 @@ import React, { useState } from 'react';
 
 function ZoomableImage({ src }) {
   const [zoom, setZoom] = useState(1);
-
   const handleZoomIn = () => {
-    const newZoom = zoom + 0.1;
-    const integerZoom = convertReactZoomToIntegerZoom(newZoom);
-    updateZoomedImage(integerZoom); // Send the new zoom value to the backend
+    var newZoom = zoom - 10;    
+    updateZoomedImage(newZoom); // Send the new zoom value to the backend
     setZoom(newZoom); // Update the zoom state
   };
 
   const handleZoomOut = () => {
-    if (zoom > 0.1) {
-      const newZoom = zoom - 0.1;      
-      const integerZoom = convertReactZoomToIntegerZoom(newZoom);
-      updateZoomedImage(integerZoom); // Send the new zoom value to the backend
-      setZoom(newZoom); // Update the zoom state
-    }
+    var newZoom = zoom + 10;      
+    updateZoomedImage(newZoom); // Send the new zoom value to the backend
+    setZoom(newZoom); // Update the zoom state
   };
 
   return (
@@ -46,8 +41,8 @@ function ZoomableImage({ src }) {
           style={{
             maxWidth: '100%',
             height: 'auto',
-            transform: `scale(${zoom})`,
-            transformOrigin: 'center center',
+            // transform: `scale(${zoom})`,
+            // transformOrigin: 'center center',
           }}
         />
       </div>
@@ -61,7 +56,7 @@ export default ZoomableImage;
 const updateZoomedImage = (zoom) => {
   // You can use fetch or any other method to send the zoom value to the backend
   // For example, if you have an API endpoint to update the zoom value:
-  fetch('/updateZoom', {
+  fetch('http://localhost:35260/updateZoom', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -76,10 +71,4 @@ const updateZoomedImage = (zoom) => {
     .catch((error) => {
       console.error('Error updating zoom:', error);
     });
-};
-
-// Define a function to convert React zoom to integer zoom
-const convertReactZoomToIntegerZoom = (reactZoom) => {
-  // Convert the React zoom (0.1, 0.2, etc.) to an integer (10, 20, etc.)
-  return Math.round(reactZoom * 10);
 };
