@@ -56,7 +56,7 @@ export default ZoomableImage;
 const updateZoomedImage = (zoom) => {
   // You can use fetch or any other method to send the zoom value to the backend
   // For example, if you have an API endpoint to update the zoom value:
-  fetch('http://localhost:35260/updateZoom', {
+  fetch('http://176.58.125.70:35260/updateZoom', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
