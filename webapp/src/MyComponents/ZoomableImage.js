@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function ZoomableImage({ src }) {
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(100);
   const handleZoomIn = () => {
     var newZoom = zoom - 10;    
     if (newZoom >= 10) {
@@ -12,7 +12,7 @@ function ZoomableImage({ src }) {
 
   const handleZoomOut = () => {
     var newZoom = zoom + 10;       
-    if (newZoom <= 499) {
+    if (newZoom <= 490) {
       setZoom(newZoom); // Update the zoom state
       updateZoomedImage(newZoom); // Send the new zoom value to the backend
     }
