@@ -21,9 +21,9 @@ class ImageReceiver extends Component {
     },
       appData: {},
     };
-    this.socket = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/ImageReceiver/ws"); //localhost 176.58.125.70  
-    this.trader = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsTradingSystem/ws"); //localhost 176.58.125.70  
-    this.appdata = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsAppData/ws"); //localhost 176.58.125.70  
+    this.socket = new WebSocket.w3cwebsocket("ws://localhost:35260/ImageReceiver/ws"); //localhost 176.58.125.70  
+    this.trader = new WebSocket.w3cwebsocket("ws://localhost:35260/FeedsTradingSystem/ws"); //localhost 176.58.125.70  
+    this.appdata = new WebSocket.w3cwebsocket("ws://localhost:35260/FeedsAppData/ws"); //localhost 176.58.125.70  
   }
  
   componentDidMount() {
