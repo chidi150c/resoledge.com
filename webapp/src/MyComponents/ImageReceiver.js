@@ -179,6 +179,16 @@ class ImageReceiver extends Component {
                 <td><i>{entryPrice !== null ? entryPrice.toFixed(6) : 'N/A'}</i></td>
               </tr>
               <tr>
+                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
+                <td><b>Trading Level</b></td>
+                <td><i>{tradingSystem.trading_level}</i></td>
+              </tr>
+              <tr>
+                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
+                <td><b>Risk Quantity Cost </b></td>
+                <td><i>{tradingSystem.risk_cost !== undefined ? tradingSystem.risk_cost.toFixed(6) : 'N/A'}</i></td>
+              </tr>
+              <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Next Buy Price</b></td>
                 <td><i>Below {nextInvestBuyPrice !== null ? nextInvestBuyPrice.toFixed(6) : 'N/A'} USDT</i></td>
@@ -220,11 +230,6 @@ class ImageReceiver extends Component {
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>Stoploss Triggered At:</b></td>
                 <td><i>{stopLossRecover !== null ? stopLossRecover.toFixed(6) : 'N/A'} USDT</i></td>
-              </tr>
-              <tr>
-                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
-                <td><b>Trading Level</b></td>
-                <td><i>{tradingSystem.trading_level}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
