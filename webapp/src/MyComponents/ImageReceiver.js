@@ -197,6 +197,11 @@ class ImageReceiver extends Component {
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Next Sell Price</b></td>
                 <td><i>Above {nextProfitSellPrice !== null ? nextProfitSellPrice.toFixed(6) : 'N/A'} USDT</i></td>
+              </tr>              
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Trade status</b></td>
+                <td><i>{tradingSystem.in_trade === true ? "Trying to Sell" : "Trying to Buy"}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
