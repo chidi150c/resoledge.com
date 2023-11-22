@@ -230,12 +230,7 @@ class ImageReceiver extends Component {
               </tr>
               {/* WebSocket received AppData {"id":113,"data_point":0,"strategy":"EMA","short_period":10,"long_period":30,"short_ema":214.3690313612198,"long_ema":214.39754837182645,"target_profit":0.013515598430000001,"target_stop_loss":0.013515598430000001,"":0.25,"total_profit_loss":0} */}
               {/* "in_trade":false,"":true,"":false,":1.7976931348623157e+308,"risk_factor":2,"max_data_size":500,"risk_profit_loss_percentage":0.00025,"base_currency":"BNB","quote_currency":"USDT","mini_qty":0.001,"max_qty":900000,"min_notional":5,"step_size":0.001} */}
-              {/* "trading_level":0,"closed_win_trades":0,"enable_stoploss":true,"sto */}
-              <tr>
-                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
-                <td><b>Stoploss Triggered At:</b></td>
-                <td><i>{stopLossRecover !== null ? stopLossRecover.toFixed(6) : 'N/A'} USDT</i></td>
-              </tr>
+              {/* "trading_level":0,"closed_win_trades":0,"enable_stoploss":true,"sto */}        
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Closed Win Trades</b></td>
