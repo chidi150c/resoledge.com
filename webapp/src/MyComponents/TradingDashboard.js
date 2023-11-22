@@ -13,7 +13,7 @@ class TradingDashboard extends Component {
             <div className="market-data w3-text-green">
               <h2><b>Trading:</b></h2>
               {/* Display live market data */}
-              <p className="w3-text-white"><b>{trade.base_currency}: </b> {trade.current_price !== undefined ? trade.current_price.toFixed(6) : 'N/A'}{trade.quote_currency}</p>
+              <p className="w3-text-white"><b>1 {trade.base_currency} : </b> {trade.current_price !== undefined ? trade.current_price.toFixed(6) : 'N/A'}{trade.quote_currency}</p>
               {/* ...other market data */}
             </div>
             <div className="performance-metrics w3-text-green">
@@ -22,7 +22,7 @@ class TradingDashboard extends Component {
               <p className="w3-text-white"><b>Initial Capital:</b>${trade.initial_capital !== undefined ? trade.initial_capital.toFixed(6) : 'N/A'}</p>
               <p className="w3-text-white"><b>Available Balance:</b> ${trade.quote_balance !== undefined ? trade.quote_balance.toFixed(6) : 'N/A'}</p>
               <p className="w3-text-white"><b>Total Profit:</b> ${appdat.total_profit_loss !== undefined ? appdat.total_profit_loss.toFixed(6) : 'N/A'}</p>
-              <p className="w3-text-white"><b>Asset Value:</b>{asset !== undefined ? asset.toFixed(6) : 'N/A'}</p>
+              <p className="w3-text-white"><b>Asset Value:</b>${asset !== undefined ? asset.toFixed(6) : 'N/A'}</p>
               {/* ...other performance metrics */}
             </div>
             <div className="chart"> 
