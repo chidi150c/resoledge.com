@@ -165,8 +165,8 @@ class ImageReceiver extends Component {
               </tr>
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
-                <td><b>Risk Position Percentage</b></td>
-                <td><i>{appData.risk_position_percentage !== undefined ? appData.risk_position_percentage.toFixed(6)*100 : 'N/A'}%</i></td>
+                <td><b>Lowest Price in 24hours: </b></td>
+                <td><i>{appData.risk_position_percentage !== undefined ? appData.risk_position_percentage.toFixed(6)*100 : 'N/A'}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
