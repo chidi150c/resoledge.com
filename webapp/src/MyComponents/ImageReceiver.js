@@ -164,11 +164,6 @@ class ImageReceiver extends Component {
                 <td><i>{tradingSystem.base_balance !== undefined ? tradingSystem.base_balance.toFixed(6) : 'N/A'} USDT</i></td>
               </tr>
               <tr>
-                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
-                <td><b>Lowest Price in 24hours: </b></td>
-                <td><i>{appData.risk_position_percentage !== undefined ? appData.risk_position_percentage.toFixed(6) : 'N/A'}</i></td>
-              </tr>
-              <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Last Quantity Traded</b></td>
                 <td><i>{entryQuantity !== null ? entryQuantity.toFixed(6) : 'N/A'}</i></td>
@@ -189,19 +184,29 @@ class ImageReceiver extends Component {
                 <td><i>{tradingSystem.risk_cost !== undefined ? tradingSystem.risk_cost.toFixed(6) : 'N/A'}</i></td>
               </tr>
               <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Next Buy Price</b></td>
-                <td><i>Below {nextInvestBuyPrice !== null ? nextInvestBuyPrice.toFixed(6) : 'N/A'} USDT</i></td>
+                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
+                <td><b>Lowest Price in 24hours: </b></td>
+                <td><i>{appData.risk_position_percentage !== undefined ? appData.risk_position_percentage.toFixed(6) : 'N/A'}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Next Sell Price</b></td>
                 <td><i>Above {nextProfitSellPrice !== null ? nextProfitSellPrice.toFixed(6) : 'N/A'} USDT</i></td>
-              </tr>              
+              </tr>   
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Next Buy Price</b></td>
+                <td><i>Below {nextInvestBuyPrice !== null ? nextInvestBuyPrice.toFixed(6) : 'N/A'} USDT</i></td>
+              </tr>           
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Trade status</b></td>
-                <td><i>{tradingSystem.in_trade === true ? "Trying to Sell" : "Trying to Buy"}</i></td>
+                <td><i>{tradingSystem.in_trade === true ? "Adjust Sell" : "Adjust Buy"}</i></td>
+              </tr>
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Stoploss Triggered</b></td>
+                <td><i>{tradingSystem.stop_loss_triggered === true ? "Yes" : "No"}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
@@ -222,11 +227,6 @@ class ImageReceiver extends Component {
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Target Stop Loss</b></td>
                 <td><i>-{appData.target_stop_loss !== undefined ? appData.target_stop_loss.toFixed(6) : 'N/A'}</i></td>
-              </tr>
-              <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Stoploss Enabled</b></td>
-                <td><i>{tradingSystem.enable_stoploss === true ? "Yes" : "No"}</i></td>
               </tr>
               {/* WebSocket received AppData {"id":113,"data_point":0,"strategy":"EMA","short_period":10,"long_period":30,"short_ema":214.3690313612198,"long_ema":214.39754837182645,"target_profit":0.013515598430000001,"target_stop_loss":0.013515598430000001,"":0.25,"total_profit_loss":0} */}
               {/* "in_trade":false,"":true,"":false,":1.7976931348623157e+308,"risk_factor":2,"max_data_size":500,"risk_profit_loss_percentage":0.00025,"base_currency":"BNB","quote_currency":"USDT","mini_qty":0.001,"max_qty":900000,"min_notional":5,"step_size":0.001} */}
