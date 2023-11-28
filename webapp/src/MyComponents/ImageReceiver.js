@@ -144,6 +144,36 @@ class ImageReceiver extends Component {
                 <td><i>{tradingSystem.trade_count} trades</i></td>
               </tr>
               <tr>
+                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
+                <td><b>Risk Quantity Cost </b></td>
+                <td><i>{tradingSystem.risk_cost !== undefined ? tradingSystem.risk_cost.toFixed(6) : 'N/A'}</i></td>
+              </tr>
+              <tr>
+                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
+                <td><b>Lowest Price in 24hours: </b></td>
+                <td><i>{appData.risk_position_percentage !== undefined ? appData.risk_position_percentage.toFixed(6) : 'N/A'}</i></td>
+              </tr>
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Next Sell Price</b></td>
+                <td><i>Above {nextProfitSellPrice !== null ? nextProfitSellPrice.toFixed(6) : 'N/A'} USDT</i></td>
+              </tr>   
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Next Buy Price</b></td>
+                <td><i>Below {nextInvestBuyPrice !== null ? nextInvestBuyPrice.toFixed(6) : 'N/A'} USDT</i></td>
+              </tr>           
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Trade status</b></td>
+                <td><i>{tradingSystem.in_trade === true ? "Adjust Sell" : "Adjust Buy"}</i></td>
+              </tr>
+              <tr>
+                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td><b>Stoploss Triggered</b></td>
+                <td><i>{tradingSystem.stop_loss_triggered === true ? "Yes" : "No"}</i></td>
+              </tr>
+              <tr>
                 <td><i className="fa fa-share-total_profitalt w3-text-green w3-large"></i></td>
                 <td><b>Polled Data Points</b></td>
                 <td><i>{tradingSystem.data_point} pts</i></td>
@@ -177,36 +207,6 @@ class ImageReceiver extends Component {
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>Trading Level</b></td>
                 <td><i>{tradingSystem.trading_level}</i></td>
-              </tr>
-              <tr>
-                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
-                <td><b>Risk Quantity Cost </b></td>
-                <td><i>{tradingSystem.risk_cost !== undefined ? tradingSystem.risk_cost.toFixed(6) : 'N/A'}</i></td>
-              </tr>
-              <tr>
-                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
-                <td><b>Lowest Price in 24hours: </b></td>
-                <td><i>{appData.risk_position_percentage !== undefined ? appData.risk_position_percentage.toFixed(6) : 'N/A'}</i></td>
-              </tr>
-              <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Next Sell Price</b></td>
-                <td><i>Above {nextProfitSellPrice !== null ? nextProfitSellPrice.toFixed(6) : 'N/A'} USDT</i></td>
-              </tr>   
-              <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Next Buy Price</b></td>
-                <td><i>Below {nextInvestBuyPrice !== null ? nextInvestBuyPrice.toFixed(6) : 'N/A'} USDT</i></td>
-              </tr>           
-              <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Trade status</b></td>
-                <td><i>{tradingSystem.in_trade === true ? "Adjust Sell" : "Adjust Buy"}</i></td>
-              </tr>
-              <tr>
-                <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
-                <td><b>Stoploss Triggered</b></td>
-                <td><i>{tradingSystem.stop_loss_triggered === true ? "Yes" : "No"}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
