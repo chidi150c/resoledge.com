@@ -209,6 +209,11 @@ class ImageReceiver extends Component {
                 <td><i>{tradingSystem.trading_level}</i></td>
               </tr>
               <tr>
+                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
+                <td><b>LastSold Index</b></td>
+                <td><i>{tradingSystem.risk_factor !== null ? tradingSystem.risk_factor.toFixed(0) : 'N/A'}</i></td>
+              </tr>
+              <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Trading Fee Rate</b></td>
                 <td><i>{tradingSystem.commission_percentage}</i></td>
