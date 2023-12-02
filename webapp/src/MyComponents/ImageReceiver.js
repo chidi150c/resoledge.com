@@ -211,7 +211,7 @@ class ImageReceiver extends Component {
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>LastSold Index</b></td>
-                <td><i>{tradingSystem.risk_factor}</i></td>
+                <td><i>{tradingSystem.risk_factor !== undefined ? tradingSystem.risk_factor.toFixed(0) : 'N/A'}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
