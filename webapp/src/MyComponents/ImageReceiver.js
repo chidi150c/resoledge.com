@@ -205,6 +205,11 @@ class ImageReceiver extends Component {
               </tr>
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
+                <td><b>Stage Level</b></td>
+                <td><i>{tradingSystem.stop_loss_recover.length !== undefined ? tradingSystem.stop_loss_recover.length : 'N/A'}</i></td>
+              </tr>
+              <tr>
+                <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>Trading Level</b></td>
                 <td><i>{tradingSystem.trading_level}</i></td>
               </tr>
