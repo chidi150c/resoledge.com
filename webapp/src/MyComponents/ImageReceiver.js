@@ -103,7 +103,7 @@ class ImageReceiver extends Component {
     const nextProfitSellPrice = tradingSystem.next_profit_sell_price ? tradingSystem.next_profit_sell_price[tradingSystem.next_profit_sell_price.length - 1] : null;
     const nextInvestBuyPrice = tradingSystem.next_invest_buy_price ? tradingSystem.next_invest_buy_price[tradingSystem.next_invest_buy_price.length - 1] : null;
     const entryCostLoss = tradingSystem.entry_cost_loss ? tradingSystem.entry_cost_loss[tradingSystem.entry_cost_loss.length - 1] : null;
-    const stopLossRecover = tradingSystem.stop_loss_recover ? tradingSystem.stop_loss_recover[tradingSystem.stop_loss_recover.length - 1] : null;
+    const stopLossRecover = tradingSystem.stop_loss_recover ? tradingSystem.stop_loss_recover.length : null;
     
     return (
       <div className="w3-panel" id="w3qtr2mod">
@@ -206,7 +206,7 @@ class ImageReceiver extends Component {
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>Stage Level</b></td>
-                <td><i>{tradingSystem.stop_loss_recover.length !== undefined ? tradingSystem.stop_loss_recover.length : 'N/A'}</i></td>
+                <td><i>{stopLossRecover !== null ? stopLossRecover : 'N/A'}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
