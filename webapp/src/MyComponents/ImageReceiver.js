@@ -19,11 +19,9 @@ class ImageReceiver extends Component {
         EntryCostLoss:       [],
         StopLossRecover:     [],
     },
-      appData: {},
     };
     this.socket = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/ImageReceiver/ws"); //localhost 176.58.125.70  
     this.trader = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsTradingSystem/ws"); //localhost 176.58.125.70  
-    this.appdata = new WebSocket.w3cwebsocket("ws://176.58.125.70:35260/FeedsAppData/ws"); //localhost 176.58.125.70  
   }
  
   componentDidMount() {
@@ -32,9 +30,6 @@ class ImageReceiver extends Component {
     };
     this.trader.onopen = () => {
       console.log("WebSocket connected For TradingSystem");
-    };
-    this.appdata.onopen = () => {
-      console.log("WebSocket connected For AppData");
     };
     this.socket.onmessage = (event) => {
       const receivedData = event.data;
@@ -55,34 +50,18 @@ class ImageReceiver extends Component {
         console.error("Error parsing tradingSystem data:", error);
       }
     };
-    this.appdata.onmessage = (event) => {
-      // console.log("WebSocket received AppData", event.data);
-      const receivedData = event.data;
-      try {
-        const appData = JSON.parse(receivedData);
-        this.setState({
-          appData: appData,
-        });
-        // console.log("Received appData data:", appData);
-      } catch (error) {
-        console.error("Error parsing appData data:", error);
-      }
-    };
     this.socket.onclose = () => {
       console.log("Image WebSocket closed");
     };
     this.trader.onclose = () => {
       console.log("Trade WebSocket closed");
     };
-    this.appdata.onclose = () => {
-      console.log("AppData WebSocket closed");
-    };
   }
 
   render() {    
-    const { tradingSystem, appData } = this.state;
-    // Check if tradingSystem and AppData are defined
-    if (!tradingSystem || !appData) {
+    const tradingSystem = this.state;
+    // Check if tradingSystem  defined
+    if (!tradingSystem) {
       return (
         <div className="w3-panel" style={{ padding: '54px 16px!important' }}>
           {/* ...other JSX code */}
@@ -114,7 +93,6 @@ class ImageReceiver extends Component {
           <div className="w3-half lfeed" style={{marginBottom: '20px', padding: '0 0 0 16px'}}>
           <h2 style={{color: 'white'}}>Chart</h2>
             <TradingDashboard 
-              appdat={appData} 
               trade={tradingSystem} 
               imageSrc={this.state.imageData ? `data:image/png;base64,${this.state.imageData}` : ""}
             />
@@ -151,7 +129,7 @@ class ImageReceiver extends Component {
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>Lowest Price in 24hours: </b></td>
-                <td><i>{appData.risk_position_percentage !== undefined ? appData.risk_position_percentage.toFixed(6) : 'N/A'}</i></td>
+                <td><i>{tradingSystem.risk_position_percentage !== undefined ? tradingSystem.risk_position_percentage.toFixed(6) : 'N/A'}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
@@ -181,9 +159,9 @@ class ImageReceiver extends Component {
               <tr>
                 <td><i className="fa fa-bell w3-text-red w3-large"></i></td>
                 <td><b>Total Profit</b></td>
-                <td><i>{appData.total_profit_loss !== undefined ? appData.total_profit_loss.toFixed(6) : 'N/A'} USDT</i></td>
+                <td><i>{tradingSystem.total_profit_loss !== undefined ? tradingSystem.total_profit_loss.toFixed(6) : 'N/A'} USDT</i></td>
               </tr>
-              <tr>
+              <tr> 
                 <td><i className="fa fa-users w3-text-yellow w3-large"></i></td>
                 <td><b>Current Quote Balance</b></td>
                 <td><i>{tradingSystem.quote_balance !== undefined ? tradingSystem.quote_balance.toFixed(6) : 'N/A'} USDT</i></td>
@@ -231,14 +209,13 @@ class ImageReceiver extends Component {
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Target Profit (closed trade)</b></td>
-                <td><i>{appData.target_profit !== undefined ? appData.target_profit.toFixed(6) : 'N/A'}</i></td>
+                <td><i>{tradingSystem.target_profit !== undefined ? tradingSystem.target_profit.toFixed(6) : 'N/A'}</i></td>
               </tr>
               <tr>
                 <td><i className="fa fa-share-alt w3-text-green w3-large"></i></td>
                 <td><b>Target Stop Loss</b></td>
-                <td><i>-{appData.target_stop_loss !== undefined ? appData.target_stop_loss.toFixed(6) : 'N/A'}</i></td>
+                <td><i>-{tradingSystem.target_stop_loss !== undefined ? tradingSystem.target_stop_loss.toFixed(6) : 'N/A'}</i></td>
               </tr>
-              {/* WebSocket received AppData {"id":113,"data_point":0,"strategy":"EMA","short_period":10,"long_period":30,"short_ema":214.3690313612198,"long_ema":214.39754837182645,"target_profit":0.013515598430000001,"target_stop_loss":0.013515598430000001,"":0.25,"total_profit_loss":0} */}
               {/* "in_trade":false,"":true,"":false,":1.7976931348623157e+308,"risk_factor":2,"max_data_size":500,"risk_profit_loss_percentage":0.00025,"base_currency":"BNB","quote_currency":"USDT","mini_qty":0.001,"max_qty":900000,"min_notional":5,"step_size":0.001} */}
               {/* "trading_level":0,"closed_win_trades":0,"enable_stoploss":true,"sto */}        
               <tr>

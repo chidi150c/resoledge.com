@@ -4,7 +4,7 @@ import "../App.css"; // Import your CSS file
 
 class TradingDashboard extends Component {
   render() {
-    const { appdat, trade, imageSrc } = this.props;
+    const { trade, imageSrc } = this.props;
     const asset = (trade.base_balance * trade.current_price + trade.quote_balance)
     return (
       <div className="container">
@@ -21,7 +21,7 @@ class TradingDashboard extends Component {
               {/* Display trading performance metrics */}
               <p className="w3-text-white"><b>Initial Capital:</b>${trade.initial_capital !== undefined ? trade.initial_capital.toFixed(6) : 'N/A'}</p>
               <p className="w3-text-white"><b>Available Balance:</b> ${trade.quote_balance !== undefined ? trade.quote_balance.toFixed(6) : 'N/A'}</p>
-              <p className="w3-text-white"><b>Total Profit:</b> ${appdat.total_profit_loss !== undefined ? appdat.total_profit_loss.toFixed(6) : 'N/A'}</p>
+              <p className="w3-text-white"><b>Total Profit:</b> ${trade.total_profit_loss !== undefined ? trade.total_profit_loss.toFixed(6) : 'N/A'}</p>
               <p className="w3-text-white"><b>Asset Value:</b>${asset !== undefined ? asset.toFixed(6) : 'N/A'}</p>
               {/* ...other performance metrics */}
             </div>
