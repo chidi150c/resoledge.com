@@ -38,14 +38,14 @@ class ImageReceiver extends Component {
       });
     };
     this.trader.onmessage = (event) => {
-      console.log("WebSocket received TradingSystem", event.data);
+      // console.log("WebSocket received TradingSystem", event.data);
       const receivedData = event.data;
       try {
         const tradingSystemData = JSON.parse(receivedData);
         this.setState({
           tradingSystem: tradingSystemData,
         });
-        console.log("Received tradingSystem data:", tradingSystemData);
+        // console.log("Received tradingSystem data:", tradingSystemData);
       } catch (error) {
         console.error("Error parsing tradingSystem data:", error);
       }
@@ -73,6 +73,7 @@ class ImageReceiver extends Component {
         </div>
       );
     }
+    console.log("Inner Received tradingSystem data:", tradingSystem);
 
     // "symbol":"BNBUSDT","closing_prices":209.6,"timestamps":1694507729,"signals":"Hold","next_invest_buy_price":[209.20796855108333],"next_profit_sell_price":[209.99206588441666],"commission_percentage":0.00075,"initial_capital":54.1,"position_size":0.04948045757864633,"entry_price":[209.6],"in_trade":true,"quote_balance":41.524,"base_balance":0.06,"risk_cost":10.381,"data_point":72,"current_price":209.6,"entry_quantity":[0.06],"scalping":"","strategy_comb_logic":"OR","entry_cost_loss":[0.009432],"trade_count":1,"trading_level":0,"closed_win_trades":0,"enable_stoploss":true,"stop_loss_triggered":false,"stop_loss_recover":[1.7976931348623157e+308],"risk_factor":2,"max_data_size":500,"risk_profit_loss_percentage":0.00025,"base_currency":"BNB","quote_currency":"USDT","mini_qty":0.01,"max_qty":9000,"min_notional":10,"step_size":0.01}
 
