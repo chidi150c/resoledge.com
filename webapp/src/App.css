@@ -2,7 +2,12 @@ h1,h2,h3,h4,h5,h6 {font-family: "Belanosima", sans-serif}
 p {
   margin: 5px!important;
 }
-
+/* IT Academy */
+.header-it{
+  margin: 50px 0 10px;
+  color: #ffff;
+  font-family: "Anton";
+}
 /* Jumbo carousel images and params */
 .bgimg-1 {  
   width: 100%;
@@ -386,7 +391,25 @@ body {
 
 /* Trading Dashboard ends */
 
-
+/*    End of Academy     */
+    .nav-IT {
+        background-color: #1d8eb8;
+        padding: 0.5em 0;
+        text-align: center;
+    }
+    .nav a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .content-IT {
+        padding: 20px;
+    }
+    .course-list, .interactive-module, .chatgpt-section {
+        margin-bottom: 20px;
+    }
+/*    End of Academy     */
 
 /* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}

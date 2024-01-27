@@ -1,56 +1,111 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// function ITAcademy(){
-  // return (
-//   );
-// };
 import React from 'react';
 import Header from './Header';
-import { Link } from 'react-router-dom';
+import Footer from './Footer'
+import Ourskills from './Ourskills';
+import trading2 from '../Assets/trading2.PNG'
+import ChatInterface from './ChatInterface';
 
 function ITAcademy() {
+
   return (
     <div>
-      <Header />
-      <div className='w3-white'>
-        <header>
-          <h1>IT Academy</h1>
+      <Header/>
+      {/* !PAGE CONTENT! */}
+      <div className="w3-main" style={{marginleft:'300px'}}>
+
+        {/* Header */}
+        <header className="header-it" id="portfolio">
+          <a href="#"><img src={trading2} style={{width:'65px'}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"/></a>
+          <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i className="fa fa-bars"></i></span>
+          <div className="w3-container">
+            <h1><b>Resoledge E-Learning</b></h1>
+            <div className="w3-section w3-bottombar w3-padding-16">
+              <span className="w3-margin-right">Filter:</span> 
+              <button className="w3-button w3-black">ALL</button>
+              <button className="w3-button w3-white"><i className="fa fa-diamond w3-margin-right"></i>Design</button>
+              <button className="w3-button w3-white w3-hide-small"><i className="fa fa-photo w3-margin-right"></i>Photos</button>
+              <button className="w3-button w3-white w3-hide-small"><i className="fa fa-map-pin w3-margin-right"></i>Art</button>
+            </div>
+          </div>
         </header>
-
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/academy">Courses</Link></li>
-            <li><Link to="/academy">Instructors</Link></li>
-            <li><Link to="/academy">Events</Link></li>
-            <li><Link to="/academy">ContLinkct</Link></li>
-          </ul>
-        </nav>
-
-        <main>
-          <h2>Welcome to IT Academy</h2>
-          <p>Learn the latest technologies and advance your IT skills with our comprehensive courses.</p>
-          <p>Explore our courses, meet our expert instructors, and stay updated with upcoming events.</p>
-
-          <div className="image">
-            <img src="course1.jpg" alt="Course 1" />
+        
+        {/* First Photo Grid*/}
+        <div className="w3-row-padding">
+          <div className="w3-third w3-container w3-margin-bottom">
+            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <div className="w3-container w3-white">
+              <p><b>Lorem Ipsum</b></p>
+              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
           </div>
-
-          <div className="image">
-            <img src="instructor1.jpg" alt="Instructor 1" />
+          <div className="w3-third w3-container w3-margin-bottom">
+            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <div className="w3-container w3-white">
+              <p><b>Lorem Ipsum</b></p>
+              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
           </div>
-
-          <div className="image">
-            <img src="event1.jpg" alt="Event 1" />
+          <div className="w3-third w3-container">
+            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <div className="w3-container w3-white">
+              <p><b>Lorem Ipsum</b></p>
+              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
           </div>
-        </main>
+        </div>
+        
+        {/* Second Photo Grid*/}
+        <div className="w3-row-padding">
+          <div className="w3-third w3-container w3-margin-bottom">
+            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <div className="w3-container w3-white">
+              <p><b>Lorem Ipsum</b></p>
+              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+          </div>
+          <div className="w3-third w3-container w3-margin-bottom">
+            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <div className="w3-container w3-white">
+              <p><b>Lorem Ipsum</b></p>
+              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+          </div>
+          <div className="w3-third w3-container">
+            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <div className="w3-container w3-white">
+              <p><b>Lorem Ipsum</b></p>
+              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+          </div>
+        </div>
 
-        <footer>
-          &copy; 2023 IT Academy. All rights reserved.
-        </footer>
+        {/* Pagination */}
+        <div className="w3-center w3-padding-32">
+          <div className="w3-bar">
+            <a href="#" className="w3-bar-item w3-button w3-hover-black">«</a>
+            <a href="#" className="w3-bar-item w3-black w3-button">1</a>
+            <a href="#" className="w3-bar-item w3-button w3-hover-black">2</a>
+            <a href="#" className="w3-bar-item w3-button w3-hover-black">3</a>
+            <a href="#" className="w3-bar-item w3-button w3-hover-black">4</a>
+            <a href="#" className="w3-bar-item w3-button w3-hover-black">»</a>
+          </div>
+        </div>
+
+        {/* Images of Me */}
+        <div className="w3-row-padding w3-padding-16" id="about">
+          <div className="w3-col m6">
+            <ChatInterface/>
+          </div>
+          <div className="w3-col m6">
+            <img src={trading2} alt="Me" style={{width:'100%'}}/>
+          </div>
+        </div>
+      {/* End page content */}
       </div>
+      <Ourskills />
+      <Footer/>
     </div>
   );
 }
+
 export default ITAcademy;
