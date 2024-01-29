@@ -10,7 +10,7 @@ function Footer(){
         <div className="w3-row w3-section">      
             <div className="w3-third w3-container w3-black w3-large" style={{height:'250px' }}>
             <h2>Contact Info</h2>
-            <p><i className="fa fa-map-marker" style={{width: '30px' }}></i> Office: No.7 Victo Alaiya Street Aguda Surulere Lagos, Nigeria</p>
+            <p><i className="fa fa-map-marker" style={{width: '30px' }}></i> Office: No.7 Victor Olaiya Street Aguda Surulere Lagos, Nigeria</p>
             <p><i className="fa fa-phone" style={{width: '30px' }}></i> Phone: +2348034435840</p>
             <p><i className="fa fa-envelope" style={{width:'30px' }}> </i> Email: info@resoledge.com</p>
             <img src="/Logolast2.png" alt="" style={{width: '42%'}}></img>
