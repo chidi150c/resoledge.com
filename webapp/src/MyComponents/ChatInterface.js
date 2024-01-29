@@ -7,7 +7,7 @@ function ChatInterface() {
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch('http://flask-app:5000/generate_content', {
+            const response = await fetch('https://flask-app:5000/generate_content', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
