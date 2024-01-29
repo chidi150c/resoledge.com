@@ -24,6 +24,9 @@ RUN rm -rf Dockerfile package*.json node_modules
 # Set the working directory for the built application
 WORKDIR /webapp/build
 
+# Create the directory /path/in/container
+RUN mkdir -p /path/in/container
+
 # Install 'serve' globally
 RUN npm install -g serve
 # Expose the port on which your application listens

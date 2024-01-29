@@ -34,14 +34,14 @@ function ITAcademy() {
           <div className="w3-third w3-container w3-margin-bottom">
             <img src={genai} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
             <div className="w3-container w3-white">
-              <p><b>Lorem Ipsum</b></p>
+              <p><b>Generative AI Training</b></p>
               <p>Dive into the exciting realm of Generative AI with this introductory course. Learn about the technology powering creative AI applications, from text generation to digital art. Ideal for beginners, this course demystifies AI creativity and showcases its potential in various sectors."</p>
             </div>
           </div>
           <div className="w3-third w3-container w3-margin-bottom">
             <img src={aiagent} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
             <div className="w3-container w3-white">
-              <p><b>Lorem Ipsum</b></p>
+              <p><b>AI Agent Training</b></p>
               <p>Uncover the dynamic world of AI Agents in this engaging course. Learn about intelligent systems, from virtual assistants to smart robots, and their impact on technology and society. Perfect for those interested in AI's interactive applications</p>
             </div>
           </div>
