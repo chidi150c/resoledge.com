@@ -1,62 +1,54 @@
 import React, { useState } from 'react';
 
 function ChatInterface() {
-  const [userMessage, setUserMessage] = useState('');
-  const [chatMessages, setChatMessages] = useState([]);
+    const [userInput, setUserInput] = useState('');
+    const [response, setResponse] = useState('');
+    const [error, setError] = useState('');
 
-  const handleChange = (e) => {
-    setUserMessage(e.target.value);
-  };
+    const handleSubmit = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/generate_content', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user_input: userInput }),
+            });
 
-  const handleSubmit = async () => {
-    // Add user's message to chat messages
-    setChatMessages([...chatMessages, { text: userMessage, type: 'user' }]);
-    
-    // Send the user's message to the Flask server
-    const response = await fetch('http://localhost:5000/generate_content', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ user_input: userMessage }),
-    });
+            if (!response.ok) {
+                throw new Error(`Request failed with status ${response.status}`);
+            }
 
-    if (response.ok) {
-      const data = await response.json();
-      const generatedContent = data.generated_content;
+            const data = await response.json();
+            setResponse(data.generated_content);
+            setError('');
+        } catch (error) {
+            console.error(`Error: ${error}`);
+            setResponse('');
+            setError('An error occurred while fetching data.');
+        }
+    };
 
-      // Add the generated content to chat messages
-      setChatMessages([...chatMessages, { text: generatedContent, type: 'bot' }]);
-    }
-
-    // Clear the input field
-    setUserMessage('');
-  };
-
-  return (
-    <div className="chat-interface">
-      <div className="chat-header">Chat with GPT-3</div>
-      <div className="chat-messages">
-        {chatMessages.map((message, index) => (
-          <div
-            key={index}
-            className={`chat-message ${message.type === 'bot' ? 'bot-message' : 'user-message'}`}
-          >
-            {message.text}
-          </div>
-        ))}
-      </div>
-      <div className="chat-input">
-        <input
-          type="text"
-          placeholder="Type your message..."
-          value={userMessage}
-          onChange={handleChange}
-        />
-        <button onClick={handleSubmit}>Send</button>
-      </div>
-    </div>
-  );
+    return (
+        <div className="chat-interface">
+            <div className="chat-header">Chat with GPT-3</div>
+            <div className="chat-messages">
+                <div className="chat-message">Hello! How can I assist you today?</div>
+                <div className="chat-message user">{userInput}</div>
+                <div className="chat-message assistant">{response}</div>
+                {error && <div className="chat-error">{error}</div>}
+            </div>
+            <div className="chat-input">
+                <input
+                    type="text"
+                    placeholder="Type your message..."
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                />
+                <button onClick={handleSubmit}>Send</button>
+            </div>
+        </div>
+    );
 }
 
 export default ChatInterface;

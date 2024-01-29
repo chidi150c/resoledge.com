@@ -3,6 +3,8 @@ import Header from './Header';
 import Footer from './Footer'
 import Ourskills from './Ourskills';
 import trading2 from '../Assets/trading2.PNG'
+import genai from '../Assets/genai.PNG'
+import aiagent from '../Assets/aiagent.PNG'
 import ChatInterface from './ChatInterface';
 
 function ITAcademy() {
@@ -15,8 +17,6 @@ function ITAcademy() {
 
         {/* Header */}
         <header className="header-it" id="portfolio">
-          <a href="#"><img src={trading2} style={{width:'65px'}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"/></a>
-          <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i className="fa fa-bars"></i></span>
           <div className="w3-container">
             <h1><b>Resoledge E-Learning</b></h1>
             <div className="w3-section w3-bottombar w3-padding-16">
@@ -32,30 +32,30 @@ function ITAcademy() {
         {/* First Photo Grid*/}
         <div className="w3-row-padding">
           <div className="w3-third w3-container w3-margin-bottom">
-            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <img src={genai} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
             <div className="w3-container w3-white">
               <p><b>Lorem Ipsum</b></p>
-              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+              <p>Dive into the exciting realm of Generative AI with this introductory course. Learn about the technology powering creative AI applications, from text generation to digital art. Ideal for beginners, this course demystifies AI creativity and showcases its potential in various sectors."</p>
             </div>
           </div>
           <div className="w3-third w3-container w3-margin-bottom">
+            <img src={aiagent} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            <div className="w3-container w3-white">
+              <p><b>Lorem Ipsum</b></p>
+              <p>Uncover the dynamic world of AI Agents in this engaging course. Learn about intelligent systems, from virtual assistants to smart robots, and their impact on technology and society. Perfect for those interested in AI's interactive applications</p>
+            </div>
+          </div>
+          {/* <div className="w3-third w3-container">
             <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
             <div className="w3-container w3-white">
               <p><b>Lorem Ipsum</b></p>
               <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
             </div>
-          </div>
-          <div className="w3-third w3-container">
-            <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
-            <div className="w3-container w3-white">
-              <p><b>Lorem Ipsum</b></p>
-              <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-            </div>
-          </div>
+          </div> */}
         </div>
         
         {/* Second Photo Grid*/}
-        <div className="w3-row-padding">
+        {/* <div className="w3-row-padding">
           <div className="w3-third w3-container w3-margin-bottom">
             <img src={trading2} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
             <div className="w3-container w3-white">
@@ -77,7 +77,7 @@ function ITAcademy() {
               <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Pagination */}
         <div className="w3-center w3-padding-32">
