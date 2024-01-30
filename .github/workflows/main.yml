@@ -48,7 +48,7 @@ jobs:
             docker rm $(docker ps -aq -f name=node20webap) || true
             docker rmi $(docker images -q chidi150c/node20webapp) || true
             docker pull chidi150c/node20webapp:${{ github.sha }}
-            docker run -d -p 35259:35259 --network my-network --name node20webap chidi150c/node20webapp:${{ github.sha }}
+            docker run -v shared_data:/path/in/container -d -p 35259:35259 --network my-network --name node20webap chidi150c/node20webapp:${{ github.sha }}
                       
       - name: Restart web server
         uses: appleboy/ssh-action@master
