@@ -20,8 +20,8 @@ class ImageReceiver extends Component {
         StopLossRecover:     [],
     },
     };
-    this.socket = new WebSocket.w3cwebsocket("wss://176.58.125.70:35260/ImageReceiver/ws");//localhost 176.58.125.70 
-    this.trader = new WebSocket.w3cwebsocket("wss://176.58.125.70:35260/FeedsTradingSystem/ws");//localhost 176.58.125.70 
+    this.socket = new WebSocket.w3cwebsocket("wss://resoledge.com/ImageReceiver/ws");//localhost 176.58.125.70 
+    this.trader = new WebSocket.w3cwebsocket("wss://resoledge.com/FeedsTradingSystem/ws");//localhost 176.58.125.70 
   }
  
   componentDidMount() {
