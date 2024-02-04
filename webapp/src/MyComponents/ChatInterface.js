@@ -7,7 +7,7 @@ function ChatInterface() {
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch('https://resoledge.com/generate_content', {
+            const response = await fetch('https://resoledge.com/chat_generate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

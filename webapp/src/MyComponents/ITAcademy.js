@@ -31,10 +31,12 @@ function ITAcademy() {
         
         {/* First Photo Grid*/}
         <div className="w3-row-padding">
-          <div className="w3-third w3-container w3-margin-bottom">
+          <div className="w3-third w3-container w3-margin-bottom">            
+            <a href="/courseshow">
             <img src={genai} alt="Norway" style={{width:'100%'}} className="w3-hover-opacity"/>
+            </a>
             <div className="w3-container w3-white">
-              <p><b>Generative AI Training</b></p>
+            <a href="/courseshow"><p><b>Generative AI Training</b></p></a>
               <p>Dive into the exciting realm of Generative AI with this introductory course. Learn about the technology powering creative AI applications, from text generation to digital art. Ideal for beginners, this course demystifies AI creativity and showcases its potential in various sectors."</p>
             </div>
           </div>
