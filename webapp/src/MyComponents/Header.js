@@ -30,8 +30,8 @@ function Header() {
         </div>   
         
       {isMobile && (
-        <button onClick={toggleMenu} class="w3-bar-item w3-button w3-right" style={{marginRight:'25px'}}>
-          <i class="fa fa-bars"></i>
+        <button onClick={toggleMenu} className="w3-bar-item w3-button w3-right" style={{marginRight:'25px'}}>
+          <i className="fa fa-bars"></i>
         </button>
       )}
     <div>
