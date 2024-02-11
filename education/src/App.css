@@ -3,6 +3,7 @@
 .homepage {
   text-align: center;
   margin: 20px;
+  color: #ffffff; /* Adding white text to complement the dark background */
 }
 
 .courses-grid {
@@ -13,25 +14,30 @@
 }
 
 .course {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  color: #333; /* Darker text for readability */
   width: 30%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 8px; /* Rounded corners for a softer look */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem; /* Space between rows */
 }
+
 .course:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}                       
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
 
 .course img {
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 5px; /* Optional: rounded corners for the image */
+  margin-bottom: 15px; /* Space between the image and the text */
 }
-/* Add to your HomePage.css */
+
 .course-button {
-  background-color: #0056b3;
+  background-color: #17a2b8; /* A more vibrant color for the button */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -39,20 +45,14 @@
   cursor: pointer;
   border-radius: 5px;
   font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
 .course-button:hover {
-  background-color: #003d82;
-}
-/* Serch Bar Styling */
-/* Add to your App.css or a separate CSS file for the SearchBar */
-
-.search-bar-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px; /* Adjust as needed */
+  background-color: #138496; /* A darker shade for the button on hover */
 }
 
+/* Search Bar Styling */
 .search-input {
   padding: 10px 15px;
   font-size: 16px; /* Adjust as needed */
