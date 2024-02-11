@@ -2,84 +2,153 @@ h1,h2,h3,h4,h5,h6 {font-family: "Belanosima", sans-serif}
 p {
   margin: 5px!important;
 }
--/* Education start*/
-/* src/HomePage.css */
-.homepage {
-  text-align: center;
-  margin: 20px;
-}
-
-.courses-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.course {
-  width: 30%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.course:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}                       
-
-.course img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-/* Add to your HomePage.css */
-.course-button {
-  background-color: #0056b3;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 1em;
-}
-
-.course-button:hover {
-  background-color: #003d82;
-}
 
 
-@media (max-width: 768px) {
-  .course {
-    width: 45%;
+/* Education start*/
+  /* Education start*/
+  /* src/HomePage.css */
+  .homepage {
+    text-align: center;
+    margin: 20px;
+    color: #ffffff; /* Adding white text to complement the dark background */
   }
-}
-@media (max-width: 480px) {
-  .course {
-    width: 90%;
-  }
-}
-/* Add to your HomePage.css */
-@media (max-width: 1024px) {
-  .course {
-    width: 45%;
-  }
-}
 
-@media (max-width: 768px) {
+  .courses-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
   .course {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: #333; /* Darker text for readability */
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem; /* Space between rows */
+  }
+
+  .course:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+  }
+
+  .course img {
     width: 100%;
+    height: auto;
+    border-radius: 5px; /* Optional: rounded corners for the image */
+    margin-bottom: 15px; /* Space between the image and the text */
   }
-}
 
-@media (max-width: 480px) {
-  .course {
-    width: 100%;
+  .course-button {
+    background-color: #17a2b8; /* A more vibrant color for the button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
   }
-}
 
+  .course-button:hover {
+    background-color: #138496; /* A darker shade for the button on hover */
+  }
+
+  /* Search Bar Styling */
+  .search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px; /* Increased bottom margin */
+    /* If you need to center it vertically as well, you can use align-items:
+    align-items: center; */
+  }
+  
+  /* If you have a specific container for the search bar, you could center that container instead */
+  .search-bar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* This will vertically center it if the container has a specific height */
+    margin-bottom: 40px; /* Bottom margin */
+  }
+  
+  .search-input {
+    padding: 10px 15px;
+    font-size: 16px; /* Adjust as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
+    width: 250px; /* Adjust as needed */
+  }
+
+  .search-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    font-size: 16px; /* Adjust as needed */
+    cursor: pointer;
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  .search-button:hover {
+    background-color: #0056b3; /* Slightly darker shade on hover */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .search-bar-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .search-input,
+    .search-button {
+      border-radius: 5px; /* All corners rounded for mobile */
+      margin-bottom: 10px; /* Space between the input and button on mobile */
+      width: 100%; /* Full width on mobile */
+    }
+  }
+
+  /* Serch Bar Styling end */
+
+  @media (max-width: 768px) {
+    .course {
+      width: 45%;
+    }
+  }
+  @media (max-width: 480px) {
+    .course {
+      width: 90%;
+    }
+  }
+  /* Add to your HomePage.css */
+  @media (max-width: 1024px) {
+    .course {
+      width: 45%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .course {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .course {
+      width: 100%;
+    }
+  }
+
+  /* Education ends*/
 /* Education ends*/
+
+
 
 /* ChatInterface.css */
 .chat-interface {

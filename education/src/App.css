@@ -53,6 +53,22 @@
 }
 
 /* Search Bar Styling */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px; /* Increased bottom margin */
+  /* If you need to center it vertically as well, you can use align-items:
+  align-items: center; */
+}
+
+/* If you have a specific container for the search bar, you could center that container instead */
+.search-bar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* This will vertically center it if the container has a specific height */
+  margin-bottom: 40px; /* Bottom margin */
+}
+
 .search-input {
   padding: 10px 15px;
   font-size: 16px; /* Adjust as needed */
@@ -62,64 +78,7 @@
 }
 
 .search-button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #007bff; /* Bootstrap primary color */
-  color: white;
-  font-size: 16px; /* Adjust as needed */
-  cursor: pointer;
-  border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  /* Other styles remain unchanged */
 }
 
-.search-button:hover {
-  background-color: #0056b3; /* Slightly darker shade on hover */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .search-bar-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-input,
-  .search-button {
-    border-radius: 5px; /* All corners rounded for mobile */
-    margin-bottom: 10px; /* Space between the input and button on mobile */
-    width: 100%; /* Full width on mobile */
-  }
-}
-
-/* Serch Bar Styling end */
-
-@media (max-width: 768px) {
-  .course {
-    width: 45%;
-  }
-}
-@media (max-width: 480px) {
-  .course {
-    width: 90%;
-  }
-}
-/* Add to your HomePage.css */
-@media (max-width: 1024px) {
-  .course {
-    width: 45%;
-  }
-}
-
-@media (max-width: 768px) {
-  .course {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .course {
-    width: 100%;
-  }
-}
-
-/* Education ends*/
+/* Adjust the margin as needed to fit the overall design of your page. */

@@ -1,28 +1,28 @@
+// src/SearchBar.js
 import React, { useState } from 'react';
 
-function SearchBar({ onSearch }) {
-  const [inputValue, setInputValue] = useState('');
-
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+const SearchBar = ({ onSearch }) => {
+  const [input, setInput] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSearch(inputValue); // Pass the input value to the parent component's search function
+    onSearch(input);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Enter a topic..."
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div className="search-bar-container">
+      <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
+        <input
+          className="search-input"
+          type="text"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          placeholder="Search courses..."
+        />
+        <button className="search-button" type="submit">Search</button>
+      </form>
+    </div>
   );
-}
+};
 
 export default SearchBar;
