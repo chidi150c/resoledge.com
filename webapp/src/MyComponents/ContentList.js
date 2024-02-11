@@ -1,17 +1,17 @@
 import React from 'react';
 
-function ContentList({ contents }) {
+const ContentList = ({ contents }) => {
   return (
-    <div>
+    <div className="content-list">
       {contents.map((content, index) => (
-        <div key={index}>
+        <div key={index} className="content-item">
           <h3>{content.title}</h3>
-          <p>{content.description}</p>
-          <a href={content.url} target="_blank" rel="noopener noreferrer">Watch Now</a>
+          <p>{content.introduction}</p>
+          {/* Render other parts of content as needed */}
         </div>
       ))}
     </div>
   );
-}
+};
 
 export default ContentList;

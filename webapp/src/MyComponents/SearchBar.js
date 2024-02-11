@@ -9,7 +9,7 @@ function SearchBar({ onSearch }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSearch(inputValue);
+    onSearch(inputValue); // Pass the input value to the parent component's search function
   };
 
   return (
