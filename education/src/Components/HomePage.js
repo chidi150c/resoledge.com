@@ -1,37 +1,49 @@
 // src/HomePage.js
 import React, { useState, useEffect } from 'react';
 import Course from './course';
-import '../App.css'; // Make sure this is the correct path to your CSS file
+import SearchBar from './SearchBar'; // Ensure this component is correctly implemented
+import '../App.css'; // Verify this path is correct for your project structure
 
 const HomePage = () => {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchCourses = async () => {
+  useEffect(() => {
+    // Mock initial data load, replace or remove this with actual data fetching if needed
+    setIsLoading(false);
+  }, []);
+
+  const handleSearch = async (query) => {
+    setIsLoading(true);
+    setError(null);
     try {
-      const response = await fetch('http://your-api-endpoint/courses', { // Replace with your actual endpoint
-        method: 'GET', // The method is likely to be GET for fetching data
+      const response = await fetch('http://localhost:35260/chat_generate', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ query }),
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      setCourses(data); // Assuming the JSON response is an array of courses
+      const newContent = await response.json();
+      console.log("Received data from backend:", newContent); // Log to inspect the structure
+
+      // Validate newContent is an array before setting it to state
+      if (Array.isArray(newContent)) {
+        setCourses(newContent);
+      } else {
+        console.error("Data received is not an array:", newContent);
+        setError('Received data is in an unexpected format');
+      }
     } catch (error) {
-      console.error("Failed to fetch courses:", error);
-      setError('Failed to load courses. Please try again later.');
+      console.error("Failed to fetch content:", error);
+      setError('Failed to load search results. Please try again later.');
     }
     setIsLoading(false);
   };
-
-  useEffect(() => {
-    
-    fetchCourses();
-  }, []);
 
   if (error) {
     return <p>Error loading courses: {error}</p>;
@@ -40,11 +52,12 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <h1>IT Academy Courses</h1>
+      <SearchBar onSearch={handleSearch} />
       {isLoading ? (
         <p>Loading courses...</p>
       ) : (
         <div className="courses-grid">
-          {courses.map(course => (
+          {Array.isArray(courses) && courses.map(course => (
             <Course key={course.id} {...course} />
           ))}
         </div>

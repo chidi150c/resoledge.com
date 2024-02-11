@@ -8,7 +8,7 @@ const SearchBar = ({ onSearch }) => {
     event.preventDefault();
     onSearch(input);
   };
-
+ 
   return (
     <form onSubmit={handleSubmit}>
       <input

@@ -44,7 +44,54 @@
 .course-button:hover {
   background-color: #003d82;
 }
+/* Serch Bar Styling */
+/* Add to your App.css or a separate CSS file for the SearchBar */
 
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.search-input {
+  padding: 10px 15px;
+  font-size: 16px; /* Adjust as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
+  width: 250px; /* Adjust as needed */
+}
+
+.search-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  font-size: 16px; /* Adjust as needed */
+  cursor: pointer;
+  border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.search-button:hover {
+  background-color: #0056b3; /* Slightly darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input,
+  .search-button {
+    border-radius: 5px; /* All corners rounded for mobile */
+    margin-bottom: 10px; /* Space between the input and button on mobile */
+    width: 100%; /* Full width on mobile */
+  }
+}
+
+/* Serch Bar Styling end */
 
 @media (max-width: 768px) {
   .course {
