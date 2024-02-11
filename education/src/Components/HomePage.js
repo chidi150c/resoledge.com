@@ -1,35 +1,42 @@
 // src/HomePage.js
 import React, { useState, useEffect } from 'react';
-import courses from './coursesData';
 import Course from './course';
-import '../App.css'; // Assuming this is the correct path to your CSS file
+import '../App.css'; // Make sure this is the correct path to your CSS file
 
 const HomePage = () => {
+  const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    // Simulate fetching data with a timeout
-    // Replace this with your actual data fetching logic
-    setTimeout(() => {
-      try {
-        // Simulate setting courses data fetched successfully
-        // In a real scenario, you'd replace this with a call to a backend service
-        // If the call fails, you'd catch the error and set it with setError
-        setIsLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setIsLoading(false);
+  const fetchCourses = async () => {
+    try {
+      const response = await fetch('http://your-api-endpoint/courses', { // Replace with your actual endpoint
+        method: 'GET', // The method is likely to be GET for fetching data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    }, 2000);
+      const data = await response.json();
+      setCourses(data); // Assuming the JSON response is an array of courses
+    } catch (error) {
+      console.error("Failed to fetch courses:", error);
+      setError('Failed to load courses. Please try again later.');
+    }
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    
+    fetchCourses();
   }, []);
 
-  // If there's an error, display it
   if (error) {
     return <p>Error loading courses: {error}</p>;
   }
 
-  // Render a loading message if isLoading is true
   return (
     <div className="homepage">
       <h1>IT Academy Courses</h1>
