@@ -8,17 +8,20 @@ const SearchBar = ({ onSearch }) => {
     event.preventDefault();
     onSearch(input);
   };
- 
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        placeholder="Search courses..."
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div className="search-bar-container">
+      <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
+        <input
+          className="search-input"
+          type="text"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          placeholder="Search courses..."
+        />
+        <button className="search-button" type="submit">Search</button>
+      </form>
+    </div>
   );
 };
 
