@@ -21,8 +21,8 @@ p {
   }
 
   .course {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    color: #333; /* Darker text for readability */
+    background-color: #292c31; /* Semi-transparent white background */
+    color: #fff; /* Darker text for readability */
     width: 30%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     padding: 20px;
@@ -44,13 +44,14 @@ p {
   }
 
   .course-button {
-    background-color: #17a2b8; /* A more vibrant color for the button */
-    color: white;
+    background-color: #39513a;
+    color: #eef3ed;
     border: none;
     padding: 10px 20px;
     margin-top: 15px;
     cursor: pointer;
     border-radius: 5px;
+    border-color: #278f478f;
     font-size: 1em;
     transition: background-color 0.3s ease;
   }
@@ -63,7 +64,7 @@ p {
   .search-bar-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px; /* Increased bottom margin */
+    margin-bottom: 30px; /* Increased bottom margin */
     /* If you need to center it vertically as well, you can use align-items:
     align-items: center; */
   }
@@ -73,10 +74,12 @@ p {
     display: flex;
     justify-content: center;
     align-items: center; /* This will vertically center it if the container has a specific height */
-    margin-bottom: 40px; /* Bottom margin */
+    margin-bottom: 20px; /* Bottom margin */
   }
   
   .search-input {
+    color: white;
+    background-color: #292c31;
     padding: 10px 15px;
     font-size: 16px; /* Adjust as needed */
     border: 1px solid #ccc;

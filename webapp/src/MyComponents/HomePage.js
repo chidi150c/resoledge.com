@@ -18,7 +18,7 @@ const HomePage = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:35260/chat_generate', {
+      const response = await fetch('http://localhost:35260/chat_generate', {  //http://localhost:8080/api/courses
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,15 +29,7 @@ const HomePage = () => {
         throw new Error('Network response was not ok');
       }
       const newContent = await response.json();
-      console.log("Received data from backend:", newContent); // Log to inspect the structure
-
-      // Validate newContent is an array before setting it to state
-      if (Array.isArray(newContent)) {
-        setCourses(newContent);
-      } else {
-        console.error("Data received is not an array:", newContent);
-        setError('Received data is in an unexpected format');
-      }
+      setCourses(prevContents => [...prevContents, newContent]); // Append new 
     } catch (error) {
       console.error("Failed to fetch content:", error);
       setError('Failed to load search results. Please try again later.');
