@@ -14,28 +14,31 @@ const HomePage = () => {
     setIsLoading(false);
   }, []);
 
-  const handleSearch = async (query) => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch('http://localhost:35260/chat_generate', {  //http://localhost:8080/api/courses
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query }),
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const newContent = await response.json();
-      setCourses(prevContents => [...prevContents, newContent]); // Append new 
-    } catch (error) {
-      console.error("Failed to fetch content:", error);
-      setError('Failed to load search results. Please try again later.');
+const handleSearch = async (query) => {
+  setIsLoading(true);
+  setError(null);
+  try {
+    const response = await fetch('http://localhost:35260/chat_generate', {  // Ensure this is the correct endpoint
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-    setIsLoading(false);
-  };
+    const newContent = await response.json();
+
+    // Assuming newContent is a single course object, append it directly
+    setCourses(prevCourses => [...prevCourses, newContent]);
+    
+  } catch (error) {
+    console.error("Failed to fetch content:", error);
+    setError('Failed to load search results. Please try again later.');
+  }
+  setIsLoading(false);
+};
 
   if (error) {
     return <p>Error loading courses: {error}</p>;
